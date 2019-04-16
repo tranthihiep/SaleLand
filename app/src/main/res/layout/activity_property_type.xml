@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+    <View
+        android:background="#4b4a4a"
+        android:layout_width="match_parent"
+        android:layout_height="20dp">
+
+    </View>
+    <android.support.v7.widget.Toolbar
+        android:background="#4b4a4a"
+        android:id="@+id/toolbarType"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        ></android.support.v7.widget.Toolbar>
+    <RadioGroup
+        android:id="@+id/groupType"
+        android:layout_margin="15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        >
+        <RadioButton
+            android:id="@+id/radioChungCu"
+            android:layout_margin="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Căn hộ, chung cư"
+            />
+        <RadioButton
+            android:id="@+id/radioCanHo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="Căn hộ"
+            />
+        <RadioButton
+            android:id="@+id/radioNhaO"
+            android:layout_margin="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nhà ở"
+            />
+        <RadioButton
+            android:id="@+id/radioDat"
+            android:layout_margin="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Đất"
+            />
+        <RadioButton
+            android:id="@+id/radioKGTM"
+            android:layout_margin="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Không gian thương mại"
+            />
+        <RadioButton
+            android:id="@+id/radioBietThu"
+            android:layout_margin="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Biệt thự"
+            />
+    </RadioGroup>
+    <Button
+        android:id="@+id/btnType"
+        android:textColor="@color/colorBlack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAllCaps="false"
+        android:background="#a6c8e2"
+        android:text="Tiếp tục"
+        />
+</LinearLayout>
+

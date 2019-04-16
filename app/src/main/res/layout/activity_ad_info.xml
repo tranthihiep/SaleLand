@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        ></android.support.v7.widget.Toolbar>
+<ImageView
+    android:src="@drawable/ic_launcher_background"
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
+    />
+    <TextView
+        android:textSize="15dp"
+        android:layout_marginLeft="5dp"
+        android:textColor="@color/colorBlack"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tiêu đề"
+        />
+    <EditText
+        android:hint="Tiêu đề"
+        android:layout_margin="10dp"
+        android:textColor="@color/colorBlack"
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+    <TextView
+        android:textSize="15dp"
+        android:layout_marginLeft="5dp"
+        android:textColor="@color/colorBlack"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Giá"
+        />
+    <EditText
+        android:hint="vnd"
+        android:layout_margin="10dp"
+        android:textColor="@color/colorBlack"
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+    <TextView
+        android:textSize="15dp"
+        android:layout_marginLeft="5dp"
+        android:textColor="@color/colorBlack"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Giá trên mỗi mét vuông"
+        />
+    <EditText
+        android:hint="vnd"
+        android:layout_margin="10dp"
+        android:textColor="@color/colorBlack"
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+    <TextView
+        android:textSize="15dp"
+        android:layout_marginLeft="5dp"
+        android:textColor="@color/colorBlack"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Diện tích"
+        />
+    <EditText
+        android:hint="m2"
+        android:layout_margin="10dp"
+        android:textColor="@color/colorBlack"
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+    <TextView
+        android:textSize="15dp"
+        android:layout_marginLeft="5dp"
+        android:textColor="@color/colorBlack"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Mô tả chi tiết"
+        />
+    <EditText
+        android:lineSpacingMultiplier="3"
+        android:hint="Mô tả chi tiết"
+        android:layout_margin="10dp"
+        android:textColor="@color/colorBlack"
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+    <Button
+        android:layout_margin="10dp"
+        android:textColor="@color/colorBlack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAllCaps="false"
+        android:background="#a6c8e2"
+        android:text="Tiếp tục"
+        />
+</LinearLayout>

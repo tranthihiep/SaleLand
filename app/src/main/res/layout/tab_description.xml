@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorWhile"
+    android:weightSum="8"
+    >
+    <com.example.hiep.bds.utilts.ExpandableTextView
+        android:id="@+id/description"
+        android:layout_weight="2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="10dp"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp"
+        android:textColor="#4A4A4A"
+        android:textSize="14sp"
+        />
+    <TextView
+        android:textColor="#3b3b3b"
+        android:textSize="17dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Nội Thất"
+        />
+    <GridView
+        android:layout_weight="2"
+        android:layout_width="match_parent"
+        android:layout_height="81dp"
+        android:numColumns="3"
+        ></GridView>
+    <TextView
+        android:textColor="#3b3b3b"
+        android:textSize="17dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ngoại Thất"
+        />
+    <GridView
+        android:layout_weight="2"
+        android:layout_width="match_parent"
+        android:layout_height="89dp"
+        android:numColumns="3"
+        ></GridView>
+    <TextView
+        android:textColor="#3b3b3b"
+        android:textSize="17dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Vị trí khoảng cách"
+        />
+    <GridView
+        android:layout_weight="2"
+        android:layout_width="match_parent"
+        android:layout_height="89dp"
+        android:numColumns="3"
+        >
+    </GridView>
+
+</LinearLayout>

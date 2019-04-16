@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+    <TextView
+        android:textSize="15dp"
+        android:layout_marginLeft="5dp"
+        android:textColor="@color/colorBlack"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tổng số mét vuông"
+        />
+    <EditText
+        android:hint="m2"
+        android:layout_margin="10dp"
+        android:textColor="@color/colorBlack"
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+    <TextView
+        android:textSize="15dp"
+        android:layout_marginLeft="5dp"
+        android:textColor="@color/colorBlack"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Số tầng"
+        />
+    <EditText
+        android:hint="Số Tầng"
+        android:layout_margin="10dp"
+        android:textColor="@color/colorBlack"
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+    <TextView
+        android:textSize="15dp"
+        android:layout_marginLeft="5dp"
+        android:textColor="@color/colorBlack"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Số phòng ngủ"
+        />
+    <EditText
+        android:hint="Phòng ngủ"
+        android:layout_margin="10dp"
+        android:textColor="@color/colorBlack"
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+    <TextView
+        android:textSize="15dp"
+        android:layout_marginLeft="5dp"
+        android:textColor="@color/colorBlack"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Nhà vệ sinh"
+        />
+    <EditText
+        android:hint="Nhà vệ sinh"
+        android:layout_margin="10dp"
+        android:textColor="@color/colorBlack"
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+    <TextView
+        android:textSize="15dp"
+        android:layout_marginLeft="5dp"
+        android:textColor="@color/colorBlack"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Nhà bếp"
+        />
+    <EditText
+        android:hint="Nhà bếp"
+        android:layout_margin="10dp"
+        android:textColor="@color/colorBlack"
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+    <TextView
+        android:textSize="15dp"
+        android:layout_marginLeft="5dp"
+        android:textColor="@color/colorBlack"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ban công"
+        />
+    <EditText
+        android:hint="Ban công"
+        android:layout_margin="10dp"
+        android:textColor="@color/colorBlack"
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+    <Button
+        android:textColor="@color/colorBlack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAllCaps="false"
+        android:background="#a6c8e2"
+        android:text="Tiếp tục"
+        />
+</LinearLayout>
