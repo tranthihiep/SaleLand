@@ -19,7 +19,7 @@
             android:id="@+id/collapsing_toolbar_movie"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:contentScrim="#28d2f4"
+            app:contentScrim="@color/colorOrange"
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
             >
             <LinearLayout
@@ -27,6 +27,7 @@
                 xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:background="@color/colorWhile"
                 android:orientation="vertical"
                 >
                 <ImageView
@@ -40,8 +41,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
+                    android:background="@color/colorWhile"
                     android:layout_marginTop="5dp"
-                    android:background="@drawable/background_item_ads"
                     android:gravity="center"
                     android:orientation="horizontal"
                     >
@@ -49,6 +50,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
+
                         >
                         <LinearLayout
                             android:layout_width="wrap_content"
@@ -128,14 +130,6 @@
                             android:textSize="15sp"
                             />
                         <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Genneral info"
-                            android:textColor="#515151"
-                            android:textSize="15sp"
-                            android:textStyle="bold"
-                            />
-                        <TextView
                             android:id="@+id/txtPrice"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -158,6 +152,7 @@
                             android:textSize="15sp"
                             />
                         <TextView
+                            android:id="@+id/thoathuan"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:drawableLeft="@drawable/ic_check"
@@ -168,174 +163,101 @@
                             />
                     </LinearLayout>
                 </LinearLayout>
+                <TableLayout android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                   android:layout_marginTop="8dp"
+                    android:background="@color/colorWhile">
+                    <TableRow android:layout_margin="8dp">
+                        <TextView
+                            android:id="@+id/apartment"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:drawableLeft="@drawable/ic_apartment"
+                            android:text="Apartment"
+                            android:textColor="#515151"
+                            android:textSize="15sp"
+                            />
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    >
-                    <TextView
-                        android:id="@+id/apartment"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:drawableLeft="@drawable/ic_apartment"
-                        android:drawablePadding="5dp"
-                        android:gravity="center"
-                        android:text="Apartment"
-                        android:textColor="#515151"
-                        android:textSize="18sp"
-                        />
+                        <TextView
+                            android:id="@+id/belcony"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:drawableLeft="@drawable/ic_belcony"
+                            android:text="3 Belcony"
+                            android:textColor="#515151"
+                            android:textSize="15sp"
+                            />
+                        <TextView
+                            android:id="@+id/txtBedRomm"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:drawableLeft="@drawable/ic_bedroom"
+                            android:text="3 Bedrooms"
+                            android:textColor="#515151"
+                            android:textSize="15sp"
+                            />
+                    </TableRow>
+                    <TableRow android:layout_margin="8dp">
+                        <TextView
+                            android:id="@+id/txtBath"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:drawableLeft="@drawable/ic_bath"
+                            android:text="2 baths"
+                            android:textColor="#515151"
+                            android:textSize="15sp"
+                            />
 
-                    <TextView
-                        android:id="@+id/S"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="22dp"
-                        android:drawableLeft="@drawable/ic_expland"
-                        android:drawablePadding="5dp"
-                        android:gravity="center"
-                        android:text="1000 sdff"
-                        android:textColor="#515151"
-                        android:textSize="18sp"
-                        />
-                    <TextView
-                        android:id="@+id/txtBedRomm"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="22dp"
-                        android:drawableLeft="@drawable/ic_bedroom"
-                        android:drawablePadding="5dp"
-                        android:gravity="center"
-                        android:text="3 Bedrooms"
-                        android:textColor="#515151"
-                        android:textSize="18sp"
-                        />
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    >
-                    <TextView
-                        android:id="@+id/txtBath"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:drawableLeft="@drawable/ic_bath"
-                        android:drawablePadding="5dp"
-                        android:gravity="center"
-                        android:text="2 baths"
-                        android:textColor="#515151"
-                        android:textSize="18sp"
-                        />
+                        <TextView
+                            android:id="@+id/baths"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:drawableLeft="@drawable/ic_shower"
+                            android:text="1 bats"
+                            android:textColor="#515151"
+                            android:textSize="15sp"
+                            />
+                        <TextView
+                            android:id="@+id/flod"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:drawableLeft="@drawable/ic_apartment"
+                            android:text="18th Floods"
+                            android:textColor="#515151"
+                            android:textSize="15sp"
+                            />
+                    </TableRow>
+                    <TableRow android:layout_margin="8dp">
+                        <TextView
+                            android:id="@+id/sale"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:drawableLeft="@drawable/ic_bag"
+                            android:text="Sale"
+                            android:textColor="#515151"
+                            android:textSize="15sp"
+                            />
+                        <TextView
+                            android:id="@+id/S"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:drawableLeft="@drawable/ic_expland"
+                            android:text="1000 sdff"
+                            android:textColor="#515151"
+                            android:textSize="15sp"
+                            />
 
-                    <TextView
-                        android:id="@+id/baths"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="22dp"
-                        android:drawableLeft="@drawable/ic_shower"
-                        android:drawablePadding="5dp"
-                        android:gravity="center"
-                        android:text="1 bats"
-                        android:textColor="#515151"
-                        android:textSize="18sp"
-                        />
-                    <TextView
-                        android:id="@+id/flod"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="22dp"
-                        android:drawableLeft="@drawable/ic_apartment"
-                        android:drawablePadding="5dp"
-                        android:gravity="center"
-                        android:text="18th Floods"
-                        android:textColor="#515151"
-                        android:textSize="18sp"
-                        />
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    >
-                    <TextView
-                        android:id="@+id/sale"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:drawableLeft="@drawable/ic_bag"
-                        android:drawablePadding="5dp"
-                        android:gravity="center"
-                        android:text="Sale"
-                        android:textColor="#515151"
-                        android:textSize="18sp"
-                        />
-
-                    <TextView
-                        android:id="@+id/belcony"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="22dp"
-                        android:drawableLeft="@drawable/ic_belcony"
-                        android:drawablePadding="5dp"
-                        android:gravity="center"
-                        android:text="3 Belcony"
-                        android:textColor="#515151"
-                        android:textSize="18sp"
-                        />
-                    <TextView
-                        android:id="@+id/txtDinning"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="22dp"
-                        android:drawableLeft="@drawable/ic_dinner"
-                        android:drawablePadding="5dp"
-                        android:gravity="center"
-                        android:text="Dining space"
-                        android:textColor="#515151"
-                        android:textSize="18sp"
-                        />
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    >
-                    <TextView
-                        android:id="@+id/txtLiving"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:drawableLeft="@drawable/ic_folder"
-                        android:drawablePadding="5dp"
-                        android:gravity="center"
-                        android:text="Living room"
-                        android:textColor="#515151"
-                        android:textSize="18sp"
-                        />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="22dp"
-                        android:layout_marginTop="5dp"
-                        android:drawableLeft="@drawable/ic_dolla"
-                        android:drawablePadding="5dp"
-                        android:gravity="center"
-                        android:text="EUR 8.00 Per sqft"
-                        android:textColor="#515151"
-                        android:textSize="13sp"
-                        />
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="22dp"
-                        android:drawableLeft="@drawable/ic_dolla"
-                        android:drawablePadding="5dp"
-                        android:gravity="center"
-                        android:text="EUR 8,000.00"
-                        android:textColor="#515151"
-                        android:textSize="10sp"
-                        />
-                </LinearLayout>
+                        <TextView
+                            android:id="@+id/giadola"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:drawableLeft="@drawable/ic_dolla"
+                            android:text="EUR 8.00 Per sqft"
+                            android:textColor="#515151"
+                            android:textSize="15sp"
+                            />
+                    </TableRow>
+                </TableLayout>
             </LinearLayout>
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolBarMovieDetail"
@@ -350,14 +272,13 @@
         android:id="@+id/viewPagerDetails"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorXam"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         >
         <android.support.design.widget.TabLayout
             android:id="@+id/tabLayout"
             android:layout_width="match_parent"
             android:layout_height="44dp"
-            android:background="#6495ed"
+            android:background="@color/colorPink"
             app:layout_behavior="@string/appbar_scrolling_view_behavior"
             app:tabGravity="fill"
             app:tabMode="fixed"

@@ -9,7 +9,7 @@ import java.io.Serializable;
 import java.util.List;
 
 
-public class Datum implements Parcelable {
+public class Datum{
 
     @SerializedName("id")
     @Expose
@@ -31,10 +31,10 @@ public class Datum implements Parcelable {
     private String address;
     @SerializedName("latitude")
     @Expose
-    private String latitude;
+    private Float latitude;
     @SerializedName("longitude")
     @Expose
-    private String longitude;
+    private Float longitude;
     @SerializedName("description")
     @Expose
     private String description;
@@ -43,7 +43,7 @@ public class Datum implements Parcelable {
     private Integer area;
     @SerializedName("price")
     @Expose
-    private Long price;
+    private Integer price;
     @SerializedName("unit")
     @Expose
     private String unit;
@@ -56,84 +56,24 @@ public class Datum implements Parcelable {
     @SerializedName("views")
     @Expose
     private Integer views;
-    @SerializedName("type_id")
+    @SerializedName("property_type_id")
     @Expose
-    private Integer typeId;
+    private Integer propertyTypeId;
     @SerializedName("district_id")
     @Expose
     private Integer districtId;
     @SerializedName("user_id")
     @Expose
     private Integer userId;
-
-    @Override
-    public String toString() {
-        return "Datum{"
-                + "id="
-                + id
-                + ", title='"
-                + title
-                + '\''
-                + ", slug='"
-                + slug
-                + '\''
-                + ", image='"
-                + image
-                + '\''
-                + ", purpose='"
-                + purpose
-                + '\''
-                + ", address='"
-                + address
-                + '\''
-                + ", latitude='"
-                + latitude
-                + '\''
-                + ", longitude='"
-                + longitude
-                + '\''
-                + ", description='"
-                + description
-                + '\''
-                + ", area="
-                + area
-                + ", price="
-                + price
-                + ", unit='"
-                + unit
-                + '\''
-                + ", negotiable="
-                + negotiable
-                + ", status='"
-                + status
-                + '\''
-                + ", views="
-                + views
-                + ", typeId="
-                + typeId
-                + ", districtId="
-                + districtId
-                + ", userId="
-                + userId
-                + ", createdAt='"
-                + createdAt
-                + '\''
-                + ", updatedAt='"
-                + updatedAt
-                + '\''
-                + ", user="
-                + user
-                + ", district="
-                + district
-                + ", detail="
-                + detail
-                + ", propertyType="
-                + propertyType
-                + ", distances="
-                + distances
-                + '}';
-    }
-
+    @SerializedName("type_id")
+    @Expose
+    private Integer typeId;
+    @SerializedName("start_date")
+    @Expose
+    private String startDate;
+    @SerializedName("end_date")
+    @Expose
+    private String endDate;
     @SerializedName("created_at")
     @Expose
     private String createdAt;
@@ -148,84 +88,19 @@ public class Datum implements Parcelable {
     private District district;
     @SerializedName("detail")
     @Expose
-    private Detail detail = new Detail();
+    private Detail detail;
     @SerializedName("property_type")
     @Expose
     private PropertyType propertyType;
+    @SerializedName("images")
+    @Expose
+    private List<Object> images = null;
     @SerializedName("distances")
     @Expose
     private List<Distance> distances = null;
-
-    protected Datum(Parcel in) {
-        if (in.readByte() == 0) {
-            id = null;
-        } else {
-            id = in.readInt();
-        }
-        title = in.readString();
-        slug = in.readString();
-        image = in.readString();
-        purpose = in.readString();
-        address = in.readString();
-        latitude = in.readString();
-        longitude = in.readString();
-        description = in.readString();
-        if (in.readByte() == 0) {
-            area = null;
-        } else {
-            area = in.readInt();
-        }
-        if (in.readByte() == 0) {
-            price = null;
-        } else {
-            price = in.readLong();
-        }
-        unit = in.readString();
-        if (in.readByte() == 0) {
-            negotiable = null;
-        } else {
-            negotiable = in.readInt();
-        }
-        status = in.readString();
-        if (in.readByte() == 0) {
-            views = null;
-        } else {
-            views = in.readInt();
-        }
-        if (in.readByte() == 0) {
-            typeId = null;
-        } else {
-            typeId = in.readInt();
-        }
-        if (in.readByte() == 0) {
-            districtId = null;
-        } else {
-            districtId = in.readInt();
-        }
-        if (in.readByte() == 0) {
-            userId = null;
-        } else {
-            userId = in.readInt();
-        }
-        createdAt = in.readString();
-        updatedAt = in.readString();
-        user = in.readParcelable(User.class.getClassLoader());
-        district = in.readParcelable(District.class.getClassLoader());
-        detail = in.readParcelable(Detail.class.getClassLoader());
-        propertyType = in.readParcelable(PropertyType.class.getClassLoader());
-    }
-
-    public static final Creator<Datum> CREATOR = new Creator<Datum>() {
-        @Override
-        public Datum createFromParcel(Parcel in) {
-            return new Datum(in);
-        }
-
-        @Override
-        public Datum[] newArray(int size) {
-            return new Datum[size];
-        }
-    };
+    @SerializedName("type")
+    @Expose
+    private Type type;
 
     public Datum() {
     }
@@ -278,19 +153,19 @@ public class Datum implements Parcelable {
         this.address = address;
     }
 
-    public String getLatitude() {
+    public Float getLatitude() {
         return latitude;
     }
 
-    public void setLatitude(String latitude) {
+    public void setLatitude(Float latitude) {
         this.latitude = latitude;
     }
 
-    public String getLongitude() {
+    public Float getLongitude() {
         return longitude;
     }
 
-    public void setLongitude(String longitude) {
+    public void setLongitude(Float longitude) {
         this.longitude = longitude;
     }
 
@@ -310,11 +185,11 @@ public class Datum implements Parcelable {
         this.area = area;
     }
 
-    public Long getPrice() {
+    public Integer getPrice() {
         return price;
     }
 
-    public void setPrice(Long price) {
+    public void setPrice(Integer price) {
         this.price = price;
     }
 
@@ -350,12 +225,12 @@ public class Datum implements Parcelable {
         this.views = views;
     }
 
-    public Integer getTypeId() {
-        return typeId;
+    public Integer getPropertyTypeId() {
+        return propertyTypeId;
     }
 
-    public void setTypeId(Integer typeId) {
-        this.typeId = typeId;
+    public void setPropertyTypeId(Integer propertyTypeId) {
+        this.propertyTypeId = propertyTypeId;
     }
 
     public Integer getDistrictId() {
@@ -372,6 +247,30 @@ public class Datum implements Parcelable {
 
     public void setUserId(Integer userId) {
         this.userId = userId;
+    }
+
+    public Integer getTypeId() {
+        return typeId;
+    }
+
+    public void setTypeId(Integer typeId) {
+        this.typeId = typeId;
+    }
+
+    public String getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(String startDate) {
+        this.startDate = startDate;
+    }
+
+    public String getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(String endDate) {
+        this.endDate = endDate;
     }
 
     public String getCreatedAt() {
@@ -422,6 +321,14 @@ public class Datum implements Parcelable {
         this.propertyType = propertyType;
     }
 
+    public List<Object> getImages() {
+        return images;
+    }
+
+    public void setImages(List<Object> images) {
+        this.images = images;
+    }
+
     public List<Distance> getDistances() {
         return distances;
     }
@@ -430,77 +337,12 @@ public class Datum implements Parcelable {
         this.distances = distances;
     }
 
-    @Override
-    public int describeContents() {
-        return 0;
+    public Type getType() {
+        return type;
     }
 
-    @Override
-    public void writeToParcel(Parcel parcel, int i) {
-        if (id == null) {
-            parcel.writeByte((byte) 0);
-        } else {
-            parcel.writeByte((byte) 1);
-            parcel.writeInt(id);
-        }
-
-        parcel.writeString(title);
-        parcel.writeString(slug);
-        parcel.writeString(image);
-        parcel.writeString(purpose);
-        parcel.writeString(address);
-        parcel.writeString(latitude);
-        parcel.writeString(longitude);
-        parcel.writeString(description);
-        if (area == null) {
-            parcel.writeByte((byte) 0);
-        } else {
-            parcel.writeByte((byte) 1);
-            parcel.writeInt(area);
-        }
-        if (price == null) {
-            parcel.writeByte((byte) 0);
-        } else {
-            parcel.writeByte((byte) 1);
-            parcel.writeLong(price);
-        }
-        parcel.writeString(unit);
-        if (negotiable == null) {
-            parcel.writeByte((byte) 0);
-        } else {
-            parcel.writeByte((byte) 1);
-            parcel.writeInt(negotiable);
-        }
-        parcel.writeString(status);
-        if (views == null) {
-            parcel.writeByte((byte) 0);
-        } else {
-            parcel.writeByte((byte) 1);
-            parcel.writeInt(views);
-        }
-        if (typeId == null) {
-            parcel.writeByte((byte) 0);
-        } else {
-            parcel.writeByte((byte) 1);
-            parcel.writeInt(typeId);
-        }
-        if (districtId == null) {
-            parcel.writeByte((byte) 0);
-        } else {
-            parcel.writeByte((byte) 1);
-            parcel.writeInt(districtId);
-        }
-        if (userId == null) {
-            parcel.writeByte((byte) 0);
-        } else {
-            parcel.writeByte((byte) 1);
-            parcel.writeInt(userId);
-        }
-        parcel.writeString(createdAt);
-        parcel.writeString(updatedAt);
-        parcel.writeParcelable(user,i);
-        parcel.writeParcelable(district,i);
-        parcel.writeParcelable(detail,i);
-        parcel.writeParcelable(propertyType,i);
+    public void setType(Type type) {
+        this.type = type;
     }
+
 }

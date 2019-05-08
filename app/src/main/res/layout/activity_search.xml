@@ -2,6 +2,82 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorWhile"
     >
+    <include
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        layout="@layout/tootbar_search"
+        >
+    </include>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="10dp"
+            android:text="Tỉnh/Thành Phố"
+            android:textColor="@color/colorBlack"
+            android:textSize="15dp"
+            />
+
+        <Spinner
+
+            android:id="@+id/spinnerTinhSearch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_marginTop="5dp"
+            android:dropDownHeight="100dp"
+            android:scrollbars="vertical"
+            android:textColor="@color/colorBlack"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="10dp"
+            android:text="Quận/Huyện"
+
+            android:textColor="@color/colorBlack"
+            android:textSize="15dp"
+            />
+        <Spinner
+            android:id="@+id/spinnerHuyenSearch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="5dp"
+            android:textColor="@color/colorBlack"
+            />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:adjustViewBounds="true"
+        android:fillViewport="true"
+        android:orientation="vertical"
+        >
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerSearch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:scrollbars="vertical"
+            />
+    </ScrollView>
 </LinearLayout>

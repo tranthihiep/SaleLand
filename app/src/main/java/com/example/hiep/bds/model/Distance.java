@@ -23,6 +23,11 @@ private Integer id;
     @Expose
     private Pivot pivot;
 
+    public Distance(Integer id, Pivot pivot) {
+        this.id = id;
+        this.pivot = pivot;
+    }
+
     public Integer getId() {
         return id;
     }

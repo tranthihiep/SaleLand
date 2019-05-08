@@ -4,29 +4,25 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
-import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.ProgressBar;
-import android.widget.TextView;
 import android.widget.Toast;
 import com.example.hiep.bds.Presenter.DataPre;
 import com.example.hiep.bds.Presenter.GetData;
 import com.example.hiep.bds.adapter.DataAdapter;
 import com.example.hiep.bds.model.DataResponnse;
 import com.example.hiep.bds.model.Datum;
+import com.example.hiep.bds.model.Login;
 import com.example.hiep.bds.utilts.ApiClient;
 import com.example.hiep.bds.utilts.ApiInterface;
 import com.example.hiep.bds.utilts.GetFragment;
-import com.example.hiep.bds.view.PorposeActivity;
-import com.example.hiep.bds.view.PropertyTypeActivity;
-import com.facebook.shimmer.ShimmerFrameLayout;
+import com.example.hiep.bds.view.home.HomeActivity;
+import com.example.hiep.bds.view.postAD.PorposeActivity;
+import com.example.hiep.bds.view.search.SearchActivity;
+import com.example.hiep.bds.view.user.LoginActivity;
 import java.util.ArrayList;
 import java.util.List;
 import com.example.hiep.bds.R;
@@ -38,7 +34,7 @@ public class SaleFragment extends GetFragment implements GetDataView {
 
     public SaleFragment() {
     }
-private FloatingActionButton fab;
+private FloatingActionButton fab, fabSearch;
     private RecyclerView mRecyclerMostPopular;
     private DataAdapter mDiscoverAdapter;
     private List<Datum> mPopulars;
@@ -62,27 +58,6 @@ private FloatingActionButton fab;
                 new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
         mRecyclerMostPopular.setLayoutManager(layoutManager1);
         getDataMovieFromService();
-        //        ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
-        //        Call<DataResponnse> call = apiService.getMovieDetails(page_current);
-        //        call.enqueue(new Callback<DataResponnse>() {
-        //            @Override
-        //            public void onResponse(Call<DataResponnse> call, Response<DataResponnse>
-        // response) {
-        //                if (response.code() == 200) {
-        //                    page_sum = response.body().getTotal();
-        //
-        //                } else {
-        //                    Toast.makeText(getActivity(), "Get Page total error", Toast
-        // .LENGTH_SHORT).show();
-        //                }
-        //            }
-        //
-        //            @Override
-        //            public void onFailure(Call<DataResponnse> call, Throwable t) {
-        //                Toast.makeText(getActivity(), "Get Page total error", Toast
-        // .LENGTH_SHORT).show();
-        //            }
-        //        });
         mRecyclerMostPopular.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
@@ -90,7 +65,7 @@ private FloatingActionButton fab;
                 visibleItemCount = layoutManager1.getChildCount();
                 totallItemCount = layoutManager1.getItemCount();
                 postVisibleItems = layoutManager1.findFirstVisibleItemPosition();
-                if (dy > 0) {
+                if (dy >= 0) {
                     if (isLoading) {
                         if (totallItemCount > previous_total) {
                             isLoading = false;
@@ -115,6 +90,10 @@ private FloatingActionButton fab;
                 {
                     fab.hide();
                 }
+                if (dy > 0 ||dy<0 && fabSearch.isShown())
+                {
+                    fabSearch.hide();
+                }
             }
 
             @Override
@@ -123,6 +102,7 @@ private FloatingActionButton fab;
                 if (newState == RecyclerView.SCROLL_STATE_IDLE)
                 {
                     fab.show();
+                    fabSearch.show();
                 }
 
                 super.onScrollStateChanged(recyclerView, newState);
@@ -131,8 +111,20 @@ private FloatingActionButton fab;
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(),PorposeActivity.class);
-                startActivity(intent);
+                if (HomeActivity.TOKEN !=null) {
+                    Intent intent = new Intent(getActivity(), PorposeActivity.class);
+                    startActivity(intent);
+                }else {
+                    Intent intent = new Intent(getActivity(), LoginActivity.class);
+                    startActivity(intent);
+                }
+            }
+        });
+        fabSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                    Intent intent = new Intent(getActivity(), SearchActivity.class);
+                    startActivity(intent);
             }
         });
         return rootView;
@@ -175,6 +167,7 @@ private FloatingActionButton fab;
 
     private void init(View view) {
         fab = view.findViewById(R.id.fapDangtin);
+        fabSearch = view.findViewById(R.id.fapTimKiem);
         mRecyclerMostPopular = view.findViewById(R.id.recyclerSale);
         mPopulars = new ArrayList<>();
         iGetDiscoverPre = new DataPre(this);

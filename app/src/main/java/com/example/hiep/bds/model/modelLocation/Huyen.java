@@ -4,115 +4,60 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class Huyen {
-    @SerializedName("Type")
+
+    @SerializedName("id")
     @Expose
-    private Integer type;
-    @SerializedName("SolrID")
+    private Integer id;
+    @SerializedName("name")
     @Expose
-    private String solrID;
-    @SerializedName("ID")
+    private String name;
+    @SerializedName("city_id")
     @Expose
-    private Integer iD;
-    @SerializedName("Title")
+    private Integer cityId;
+    @SerializedName("created_at")
     @Expose
-    private String title;
-    @SerializedName("STT")
+    private String createdAt;
+    @SerializedName("updated_at")
     @Expose
-    private Integer sTT;
-    @SerializedName("TinhThanhID")
-    @Expose
-    private Integer tinhThanhID;
-    @SerializedName("TinhThanhTitle")
-    @Expose
-    private String tinhThanhTitle;
-    @SerializedName("TinhThanhTitleAscii")
-    @Expose
-    private String tinhThanhTitleAscii;
-    @SerializedName("Created")
-    @Expose
-    private Object created;
-    @SerializedName("Updated")
-    @Expose
-    private Object updated;
+    private String updatedAt;
 
-    public Integer getType() {
-        return type;
+    public Integer getId() {
+        return id;
     }
 
-    public void setType(Integer type) {
-        this.type = type;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public String getSolrID() {
-        return solrID;
+    public String getName() {
+        return name;
     }
 
-    public void setSolrID(String solrID) {
-        this.solrID = solrID;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public Integer getID() {
-        return iD;
+    public Integer getCityId() {
+        return cityId;
     }
 
-    public void setID(Integer iD) {
-        this.iD = iD;
+    public void setCityId(Integer cityId) {
+        this.cityId = cityId;
     }
 
-    public String getTitle() {
-        return title;
+    public String getCreatedAt() {
+        return createdAt;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setCreatedAt(String createdAt) {
+        this.createdAt = createdAt;
     }
 
-    public Integer getSTT() {
-        return sTT;
+    public String getUpdatedAt() {
+        return updatedAt;
     }
 
-    public void setSTT(Integer sTT) {
-        this.sTT = sTT;
+    public void setUpdatedAt(String updatedAt) {
+        this.updatedAt = updatedAt;
     }
-
-    public Integer getTinhThanhID() {
-        return tinhThanhID;
-    }
-
-    public void setTinhThanhID(Integer tinhThanhID) {
-        this.tinhThanhID = tinhThanhID;
-    }
-
-    public String getTinhThanhTitle() {
-        return tinhThanhTitle;
-    }
-
-    public void setTinhThanhTitle(String tinhThanhTitle) {
-        this.tinhThanhTitle = tinhThanhTitle;
-    }
-
-    public String getTinhThanhTitleAscii() {
-        return tinhThanhTitleAscii;
-    }
-
-    public void setTinhThanhTitleAscii(String tinhThanhTitleAscii) {
-        this.tinhThanhTitleAscii = tinhThanhTitleAscii;
-    }
-
-    public Object getCreated() {
-        return created;
-    }
-
-    public void setCreated(Object created) {
-        this.created = created;
-    }
-
-    public Object getUpdated() {
-        return updated;
-    }
-
-    public void setUpdated(Object updated) {
-        this.updated = updated;
-    }
-
 }

@@ -4,93 +4,49 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class LtsItem {
-    @SerializedName("Type")
+    @SerializedName("id")
     @Expose
-    private Integer type;
-    @SerializedName("SolrID")
+    private Integer id;
+    @SerializedName("name")
     @Expose
-    private String solrID;
-    @SerializedName("ID")
+    private String name;
+    @SerializedName("created_at")
     @Expose
-    private Integer iD;
-    @SerializedName("Title")
+    private String createdAt;
+    @SerializedName("updated_at")
     @Expose
-    private String title;
-    @SerializedName("STT")
-    @Expose
-    private Integer sTT;
-    @SerializedName("Created")
-    @Expose
-    private Object created;
-    @SerializedName("Updated")
-    @Expose
-    private Object updated;
-    @SerializedName("TotalDoanhNghiep")
-    @Expose
-    private Long totalDoanhNghiep;
+    private String updatedAt;
 
-    public Integer getType() {
-        return type;
+    public Integer getId() {
+        return id;
     }
 
-    public void setType(Integer type) {
-        this.type = type;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public String getSolrID() {
-        return solrID;
+    public String getName() {
+        return name;
     }
 
-    public void setSolrID(String solrID) {
-        this.solrID = solrID;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public Integer getID() {
-        return iD;
+    public String getCreatedAt() {
+        return createdAt;
     }
 
-    public void setID(Integer iD) {
-        this.iD = iD;
+    public void setCreatedAt(String createdAt) {
+        this.createdAt = createdAt;
     }
 
-    public String getTitle() {
-        return title;
+    public String getUpdatedAt() {
+        return updatedAt;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public Integer getSTT() {
-        return sTT;
-    }
-
-    public void setSTT(Integer sTT) {
-        this.sTT = sTT;
-    }
-
-    public Object getCreated() {
-        return created;
-    }
-
-    public void setCreated(Object created) {
-        this.created = created;
-    }
-
-    public Object getUpdated() {
-        return updated;
-    }
-
-    public void setUpdated(Object updated) {
-        this.updated = updated;
-    }
-
-    public Long getTotalDoanhNghiep() {
-        return totalDoanhNghiep;
-    }
-
-    public void setTotalDoanhNghiep(Long totalDoanhNghiep) {
-        this.totalDoanhNghiep = totalDoanhNghiep;
+    public void setUpdatedAt(String updatedAt) {
+        this.updatedAt = updatedAt;
     }
 
 }

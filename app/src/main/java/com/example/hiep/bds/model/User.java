@@ -5,7 +5,7 @@ import android.os.Parcelable;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class User implements Parcelable {
+public class User {
 
     @SerializedName("id")
     @Expose
@@ -31,33 +31,34 @@ public class User implements Parcelable {
     @SerializedName("updated_at")
     @Expose
     private String updatedAt;
+    @SerializedName("password")
+    @Expose
+    private String password;
 
-    protected User(Parcel in) {
-        if (in.readByte() == 0) {
-            id = null;
-        } else {
-            id = in.readInt();
-        }
-        name = in.readString();
-        email = in.readString();
-        phone = in.readString();
-        address = in.readString();
-        emailVerifiedAt = in.readString();
-        createdAt = in.readString();
-        updatedAt = in.readString();
+    public User(String name, String email, String phone, String address, String password) {
+        this.name = name;
+        this.email = email;
+        this.phone = phone;
+        this.address = address;
+        this.password = password;
     }
 
-    public static final Creator<User> CREATOR = new Creator<User>() {
-        @Override
-        public User createFromParcel(Parcel in) {
-            return new User(in);
-        }
+    public User(String email, String password) {
+        this.email = email;
+        this.password = password;
+    }
 
-        @Override
-        public User[] newArray(int size) {
-            return new User[size];
-        }
-    };
+    public User() {
+
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
     public Integer getId() {
         return id;
@@ -124,24 +125,31 @@ public class User implements Parcelable {
     }
 
     @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel parcel, int i) {
-        if (id == null) {
-            parcel.writeByte((byte) 0);
-        } else {
-            parcel.writeByte((byte) 1);
-            parcel.writeInt(id);
-        }
-        parcel.writeString(name);
-        parcel.writeString(email);
-        parcel.writeString(phone);
-        parcel.writeString(address);
-        parcel.writeString(emailVerifiedAt);
-        parcel.writeString(createdAt);
-        parcel.writeString(updatedAt);
+    public String toString() {
+        return "User{"
+                + "id="
+                + id
+                + ", name='"
+                + name
+                + '\''
+                + ", email='"
+                + email
+                + '\''
+                + ", phone='"
+                + phone
+                + '\''
+                + ", address='"
+                + address
+                + '\''
+                + ", emailVerifiedAt='"
+                + emailVerifiedAt
+                + '\''
+                + ", createdAt='"
+                + createdAt
+                + '\''
+                + ", updatedAt='"
+                + updatedAt
+                + '\''
+                + '}';
     }
 }

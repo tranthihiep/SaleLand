@@ -1,6 +1,7 @@
-package com.example.hiep.bds.view;
+package com.example.hiep.bds.view.postAD;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -11,13 +12,16 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 import com.example.hiep.bds.R;
+
 public class PropertyTypeActivity extends AppCompatActivity {
     Toolbar mToolbar;
     private RadioGroup radioGroup;
-    private RadioButton radioBietThu, radioTTTM, radioDat,radioChungCu,radioCanHo,
-    radioNhaO;
+    private RadioButton radioBietThu, radioNhaTro, radioDat,radioChungCu,radioVanPhong,
+    radioNhaO, radioTrangTrai, radioNhakho;
     private Button btnCOntinue;
+    int type;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,25 +33,45 @@ public class PropertyTypeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_property_type);
         init();
         setToolbar();
-
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener()
         {
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 switch(checkedId){
-                    case R.id.radiosale:
-                        // do operations specific to this selection
+                    case R.id.radioChungCu:
+                        type = 1;
                         break;
-                    case R.id.radioRent:
-                        // do operations specific to this selection
+                    case R.id.radioNhaO:
+                        type = 2;
+                        break;
+                    case R.id.radioDat:
+                        type = 3;
+                        break;
+                    case R.id.radioVanPhong:
+                        type = 4;
+                        break;
+                    case R.id.radioBietThu:
+                        type = 5;
                         break;
                 }
             }
         });
+
         btnCOntinue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(PropertyTypeActivity.this,LocationInforActivity.class);
-                startActivity(intent);
+                if (radioGroup.getCheckedRadioButtonId() != -1)
+                {
+                    SharedPreferences.Editor editor = getSharedPreferences("TYPE", MODE_PRIVATE).edit();
+                    editor.putInt("type", type);
+                    editor.apply();
+                    Intent intent = new Intent(PropertyTypeActivity.this,LocationInforActivity.class);
+                    startActivity(intent);
+                }
+                else
+                {
+                    Toast.makeText(PropertyTypeActivity.this, "Vui lòng chọn", Toast.LENGTH_SHORT).show();
+                }
+
             }
         });
     }
@@ -73,11 +97,8 @@ public class PropertyTypeActivity extends AppCompatActivity {
         radioBietThu = findViewById(R.id.radioBietThu);
         radioNhaO = findViewById(R.id.radioNhaO);
         radioDat = findViewById(R.id.radioDat);
-        radioTTTM = findViewById(R.id.radioKGTM);
         radioChungCu = findViewById(R.id.radioChungCu);
-        radioCanHo = findViewById(R.id.radioCanHo);
-
-
+        radioVanPhong = findViewById(R.id.radioVanPhong);
         btnCOntinue = findViewById(R.id.btnType);
 
     }

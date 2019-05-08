@@ -1,102 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/colorWhile"
-    android:orientation="vertical"
->
-    <View
-        android:background="#4b4a4a"
-        android:layout_width="match_parent"
-        android:layout_height="20dp">
 
-    </View>
-    <android.support.v7.widget.Toolbar
-        android:background="#4b4a4a"
-        android:id="@+id/toolbarLoaction"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="44dp"
-        ></android.support.v7.widget.Toolbar>
-    <TextView
-        android:textSize="15dp"
-        android:layout_marginLeft="5dp"
-        android:textColor="@color/colorBlack"
-        android:layout_marginTop="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Tỉnh/Thành Phố"
-        />
+        android:layout_height="match_parent"
+        android:background="@color/colorWhile"
+        android:orientation="vertical"
+        >
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbarLoaction"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:background="@color/colorOrange"
+            ></android.support.v7.widget.Toolbar>
 
-    <Spinner
-        android:scrollbars="vertical"
-        android:id="@+id/spinnerTinh"
-        android:layout_margin="10dp"
-        android:textColor="@color/colorBlack"
-        android:layout_marginTop="5dp"
-        android:layout_width="match_parent"
-        android:dropDownHeight="100dp"
-        android:layout_height="wrap_content"
-        />
-    <TextView
-        android:textSize="15dp"
-        android:layout_marginLeft="5dp"
-        android:textColor="@color/colorBlack"
-        android:layout_marginTop="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Quận/Huyện"
-        />
-    <Spinner
-        android:id="@+id/spinnerHuyen"
-        android:layout_margin="10dp"
-        android:textColor="@color/colorBlack"
-        android:layout_marginTop="5dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        />
-    <TextView
-        android:textSize="15dp"
-        android:layout_marginLeft="5dp"
-        android:textColor="@color/colorBlack"
-        android:layout_marginTop="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Phường/Xã/Thị Trấn"
-        />
-    <Spinner
-        android:id="@+id/spinnerXa"
-        android:layout_margin="10dp"
-        android:textColor="@color/colorBlack"
-        android:layout_marginTop="5dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        />
-    <TextView
-        android:textSize="15dp"
-        android:layout_marginLeft="5dp"
-        android:textColor="@color/colorBlack"
-        android:layout_marginTop="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Địa chỉ cụ thể"
-        />
-    <EditText
-        android:id="@+id/edtDiaChi"
-        android:hint="Địa chỉ"
-        android:layout_margin="10dp"
-        android:textColor="@color/colorBlack"
-        android:layout_marginTop="5dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        />
-    <Button
-        android:id="@+id/btnLocation"
-        android:layout_margin="10dp"
-        android:textColor="@color/colorBlack"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAllCaps="false"
-        android:background="#a6c8e2"
-        android:text="Tiếp tục"
-        />
-</LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="10dp"
+                android:text="Tỉnh/Thành Phố"
+                android:textColor="@color/colorBlack"
+                android:textSize="15dp"
+                />
+
+            <Spinner
+                android:id="@+id/spinnerTinh"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_marginTop="5dp"
+                android:dropDownHeight="100dp"
+                android:scrollbars="vertical"
+                android:textColor="@color/colorBlack"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="10dp"
+                android:text="Quận/Huyện"
+                android:textColor="@color/colorBlack"
+                android:textSize="15dp"
+                />
+            <Spinner
+                android:id="@+id/spinnerHuyen"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="5dp"
+                android:textColor="@color/colorBlack"
+                />
+        </LinearLayout>
+
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/name_text_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:hint="Địa chỉ cụ thể"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            >
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/edtDiaChi"
+                android:textSize="15sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+        </android.support.design.widget.TextInputLayout>
+        <Button
+            android:id="@+id/btnLocation"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_margin="5dp"
+            android:layout_marginTop="5dp"
+            android:backgroundTint="@color/colorPink"
+            android:text="Tiếp tục"
+            android:textAllCaps="false"
+            android:textColor="@color/colorBlack"
+            />
+    </LinearLayout>
+
+

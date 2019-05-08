@@ -7,6 +7,19 @@
         <item>Nữ</item>
         <item>Giới tính thứ 3</item>
     </string-array>
+    <string-array name="loaitin">
+        <item>Tin thường</item>
+        <item>Tin cao cấp</item>
+        <item>Tin VIP</item>
+    </string-array>
+    <string-array name="thue">
+        <item>month</item>
+        <item>year</item>
+    </string-array>
+    <string-array name="ban">
+        <item>m2</item>
+        <item>total_area</item>
+    </string-array>
     <string name="Open">Open</string>
     <string name="Close">Close</string>
     <string name="title_activity_main2">Main2Activity</string>

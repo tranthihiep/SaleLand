@@ -31,12 +31,12 @@ public class MainContainFragment extends Fragment
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         switch (getFragment()) {
-            case "Mua":
+            case "Mua, Bán":
                 //DiscoverFragment fragment = new DiscoverFragment();
                 //fragment.setListener(this);
                 addChildFragment(new SaleFragment(), false, false);
                 break;
-            case "Thuê":
+            case "Cho Thuê":
                 addChildFragment(new RentFragment(), false, false);
                 break;
 

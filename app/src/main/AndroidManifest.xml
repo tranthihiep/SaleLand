@@ -8,7 +8,11 @@
          location permissions for the 'MyLocation' functionality. 
     -->
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
 
     <application
         android:allowBackup="true"
@@ -50,14 +54,51 @@
             android:name=".view.detailData.DetailData"
             android:theme="@style/theme"/>
         <activity
-            android:name=".view.PorposeActivity"
+            android:name=".view.postAD.PorposeActivity"
             android:label="@string/title_activity_porpose"
             android:theme="@style/theme">
         </activity>
-        <activity android:name=".view.PropertyTypeActivity"
+        <activity
+            android:name=".view.postAD.PropertyTypeActivity"
             android:theme="@style/theme">
         </activity>
-        <activity android:name=".view.LocationInforActivity"
+        <activity
+            android:name=".view.postAD.LocationInforActivity"
+            android:theme="@style/theme">
+        </activity>
+        <activity
+            android:name=".view.postAD.ADInforActivity"
+            android:theme="@style/theme">
+        </activity>
+        <activity
+            android:name=".view.postAD.PropertyDetailActivity"
+            android:theme="@style/theme">
+        </activity>
+        <activity
+            android:name=".view.postAD.AmentiesActivity"
+            android:theme="@style/theme">
+        </activity>
+        <activity
+            android:name=".view.postAD.DistanceActivity"
+            android:theme="@style/theme">
+        </activity>
+        <activity
+            android:name=".view.postAD.DataPostActivity"
+            android:theme="@style/theme">
+        </activity>
+        <activity
+            android:name=".view.user.RegisterActivity"
+            android:theme="@style/theme">
+        </activity>
+        <activity
+            android:name=".view.user.LoginActivity"
+            android:theme="@style/theme">
+        </activity>
+        <activity
+            android:name=".view.search.SearchActivity"
+            android:theme="@style/theme">
+        </activity>
+        <activity android:name=".view.myPost.MyPostActivity"
             android:theme="@style/theme">
         </activity>
     </application>

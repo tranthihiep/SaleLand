@@ -5,11 +5,12 @@
     android:gravity="center"
     android:orientation="vertical"
     >
+
     <ImageView
-        android:scaleType="centerCrop"
-        android:src="@drawable/ic_nav"
+        android:src="@drawable/ic_draw"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="270dp"
         />
+
 
 </LinearLayout>

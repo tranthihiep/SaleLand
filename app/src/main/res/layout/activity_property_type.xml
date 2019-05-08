@@ -5,74 +5,71 @@
     android:orientation="vertical"
     >
     <View
-        android:background="#4b4a4a"
         android:layout_width="match_parent"
-        android:layout_height="20dp">
+        android:layout_height="20dp"
+        android:background="@color/colorOrange"
+        >
 
     </View>
     <android.support.v7.widget.Toolbar
-        android:background="#4b4a4a"
         android:id="@+id/toolbarType"
         android:layout_width="match_parent"
         android:layout_height="44dp"
+        android:background="@color/colorOrange"
         ></android.support.v7.widget.Toolbar>
     <RadioGroup
         android:id="@+id/groupType"
-        android:layout_margin="15dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="15dp"
         >
         <RadioButton
             android:id="@+id/radioChungCu"
-            android:layout_margin="5dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Căn hộ, chung cư"
-            />
-        <RadioButton
-            android:id="@+id/radioCanHo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:text="Căn hộ"
+            android:text="Deserunt"
             />
         <RadioButton
             android:id="@+id/radioNhaO"
-            android:layout_margin="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Nhà ở"
+            android:layout_margin="5dp"
+            android:text="Ex"
             />
         <RadioButton
             android:id="@+id/radioDat"
-            android:layout_margin="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Đất"
+            android:layout_margin="5dp"
+            android:text="Harum"
             />
         <RadioButton
-            android:id="@+id/radioKGTM"
-            android:layout_margin="5dp"
+            android:id="@+id/radioVanPhong"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Không gian thương mại"
+            android:layout_margin="5dp"
+            android:text="Omnis"
             />
+
         <RadioButton
             android:id="@+id/radioBietThu"
-            android:layout_margin="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Biệt thự"
+            android:layout_margin="5dp"
+            android:text="Libero"
             />
     </RadioGroup>
     <Button
         android:id="@+id/btnType"
-        android:textColor="@color/colorBlack"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAllCaps="false"
-        android:background="#a6c8e2"
+        android:layout_height="50dp"
+        android:layout_margin="5dp"
+        android:layout_marginTop="5dp"
+        android:backgroundTint="@color/colorPink"
         android:text="Tiếp tục"
+        android:textAllCaps="false"
+        android:textColor="@color/colorBlack"
         />
 </LinearLayout>
 

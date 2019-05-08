@@ -3,66 +3,34 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:layout_weight="10"
     >
     <android.support.v7.widget.Toolbar
+        android:layout_weight="1"
+        android:id="@+id/toolbarAM"
         android:layout_width="match_parent"
         android:layout_height="44dp"
+        android:background="@color/colorOrange"
         ></android.support.v7.widget.Toolbar>
-    <CheckBox
-        android:layout_margin="5dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Điều hòa" />
-    <CheckBox
-        android:layout_margin="5dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TV"/>
-    <CheckBox
-        android:layout_margin="5dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Thang máy"/>
-    <CheckBox
-        android:layout_margin="5dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Tủ lạnh"/>
-    <CheckBox
-        android:layout_margin="5dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Sofa/Bàn ghế"/>
-    <CheckBox
-        android:layout_margin="5dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Nóng lạnh"/>
-    <CheckBox
-        android:layout_margin="5dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Internet"/>
-    <TextView
+    <ListView
+        android:layout_weight="7"
+        android:id="@+id/listview"
         android:layout_margin="10dp"
-        android:text="Thêm ..."
-        android:textColor="@color/colorBlack"
-        android:textSize="17dp"
+        android:choiceMode="singleChoice"
+        android:descendantFocusability="beforeDescendants"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        />
-    <EditText
-        android:textColor="@color/colorBlack"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Thêm..."
-        />
+        android:layout_height="wrap_content">
+    </ListView>
     <Button
-        android:textColor="@color/colorBlack"
+        android:id="@+id/btnTTAM"
+        android:layout_weight="1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAllCaps="false"
-        android:background="#a6c8e2"
+        android:layout_height="50dp"
+        android:layout_margin="5dp"
+        android:layout_marginTop="5dp"
+        android:backgroundTint="@color/colorPink"
         android:text="Tiếp tục"
+        android:textAllCaps="false"
+        android:textColor="@color/colorBlack"
         />
 </LinearLayout>

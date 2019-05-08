@@ -4,14 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <item
-        android:id="@+id/menuHome"
-        android:icon="@drawable/ic_home"
-        android:title="Trang chủ">
-
-    </item>
-    <item
         android:id="@+id/menuDangNhap"
-        android:icon="@drawable/ic_save"
+        android:icon="@drawable/ic_login"
         android:title="Đăng nhập">
 
     </item>
@@ -21,10 +15,11 @@
         android:title="Đăng ký">
 
     </item>
+
     <item
-        android:id="@+id/menuLogout"
+        android:id="@+id/menuMyPost"
         android:icon="@drawable/ic_blog_menu"
-        android:title="Blog">
+        android:title="Bài viết của tôi">
 
     </item>
     <item
@@ -34,8 +29,8 @@
 
     </item>
     <item
-        android:id="@+id/menuInfor"
-        android:icon="@drawable/ic_lock"
+        android:id="@+id/menuDangXuat"
+        android:icon="@drawable/ic_logout"
         android:title="Đăng xuất">
 
     </item>

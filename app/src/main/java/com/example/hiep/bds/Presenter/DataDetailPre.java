@@ -20,10 +20,10 @@ public class DataDetailPre extends GetView<GetDataDetailView> implements GetData
     @Override
     public void getDetailMovie(int id) {
         ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
-        Call<List<DataDetail>> call = apiService.getDataDetail(id);
-        call.enqueue(new Callback<List<DataDetail>>() {
+        Call<DataDetail> call = apiService.getDataDetail(id);
+        call.enqueue(new Callback<DataDetail>() {
             @Override
-            public void onResponse(Call<List<DataDetail>> call, Response<List<DataDetail>> response) {
+            public void onResponse(Call<DataDetail> call, Response<DataDetail> response) {
                 if (response.code() == 200) {
                     presenter.getDetailMovieSuccess((DataDetail) response.body());
                 } else {
@@ -32,7 +32,7 @@ public class DataDetailPre extends GetView<GetDataDetailView> implements GetData
             }
 
             @Override
-            public void onFailure(Call<List<DataDetail>> call, Throwable t) {
+            public void onFailure(Call<DataDetail> call, Throwable t) {
                 presenter.getDetailMovieFailure();
             }
         });

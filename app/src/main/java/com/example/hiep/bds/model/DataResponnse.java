@@ -42,6 +42,23 @@ public class DataResponnse {
     @Expose
     private Integer total;
 
+    public DataResponnse(Integer currentPage, List<Datum> data, String firstPageUrl, Integer from,
+            Integer lastPage, String lastPageUrl, String nextPageUrl, String path, Integer perPage,
+            Object prevPageUrl, Integer to, Integer total) {
+        this.currentPage = currentPage;
+        this.data = data;
+        this.firstPageUrl = firstPageUrl;
+        this.from = from;
+        this.lastPage = lastPage;
+        this.lastPageUrl = lastPageUrl;
+        this.nextPageUrl = nextPageUrl;
+        this.path = path;
+        this.perPage = perPage;
+        this.prevPageUrl = prevPageUrl;
+        this.to = to;
+        this.total = total;
+    }
+
     public Integer getCurrentPage() {
         return currentPage;
     }

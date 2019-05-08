@@ -22,9 +22,9 @@
         <android.support.design.widget.TabLayout
             android:id="@+id/tabLayoutMain"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="50dp"
             android:layout_alignParentBottom="true"
-            android:background="#4b4a4a"
+            android:background="#ee823e"
             android:textAllCaps="false"
             app:tabSelectedTextColor="#ffff"
             app:tabTextAppearance="@style/TabLayoutTextStyle"

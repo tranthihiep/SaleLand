@@ -7,7 +7,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="20dp"
-        android:background="#4b4a4a"
+        android:background="@color/colorOrange"
         >
 
     </View>
@@ -15,7 +15,7 @@
         android:id="@+id/idPurpose"
         android:layout_width="match_parent"
         android:layout_height="44dp"
-        android:background="#4b4a4a"
+        android:background="@color/colorOrange"
         ></android.support.v7.widget.Toolbar>
     <RadioGroup
         android:id="@+id/radioGroup"
@@ -39,9 +39,10 @@
     <Button
         android:id="@+id/btnTieptuc"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:background="#a6c8e2"
+        android:layout_height="50dp"
+        android:layout_margin="5dp"
+        android:layout_marginTop="5dp"
+        android:backgroundTint="@color/colorPink"
         android:text="Tiếp tục"
         android:textAllCaps="false"
         android:textColor="@color/colorBlack"

@@ -15,6 +15,10 @@ public class Pivot {
     @Expose
     private Integer meters;
 
+    public Pivot(Integer meters) {
+        this.meters = meters;
+    }
+
     public Integer getPostId() {
         return postId;
     }

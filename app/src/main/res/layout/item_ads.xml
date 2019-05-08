@@ -1,163 +1,137 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:background="@drawable/background_item_ads"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:layout_margin="5dp"
+    android:layout_margin="8dp"
+    android:backgroundTint="#f7ca5e"
+    style="@style/Widget.MaterialComponents.CardView"
     >
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        >
-        <ImageView
-            android:layout_margin="5dp"
-            android:id="@+id/img_item"
-            android:layout_width="150dp"
-            android:layout_height="200dp"
-            android:src="@drawable/ic_launcher_background"
-            android:scaleType="centerCrop"
-            />
+        android:orientation="vertical"
 
+        >
         <LinearLayout
-            android:weightSum="6"
-            android:layout_margin="5dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
+            android:orientation="horizontal"
             >
-            <TextView
-                android:layout_weight="2"
-                android:id="@+id/txt_title"
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="15sp"
-                android:text="Ready apartment frond around"
-                android:textColor="#515151"
+            <ImageView
+                android:id="@+id/img_item"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_margin="5dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_launcher_background"
                 />
-            <TextView
-                android:layout_weight="1"
-                android:id="@+id/txt_price"
-                android:gravity="center"
-                android:layout_marginTop="3dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="15sp"
-                android:text="EUR 300.000.00"
-                android:textColor="#000000"
-                />
+
             <LinearLayout
-                android:layout_marginTop="3dp"
-                android:layout_weight="1"
-                android:layout_width="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:weightSum="2"
+                android:orientation="vertical"
                 >
                 <TextView
-                    android:layout_weight="1"
-                    android:id="@+id/txt_loaction"
-                    android:drawablePadding="5dp"
-                    android:drawableLeft="@drawable/ic_location"
-                    android:gravity="center"
-                    android:layout_width="100dp"
+                    android:id="@+id/txt_title"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:text="Ready apartment frond around"
+                    android:textColor="#096e30"
                     android:textSize="13sp"
+                    />
+                <TextView
+                    android:layout_marginTop="3dp"
+                    android:id="@+id/txt_price"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="EUR 300.000.00"
+                    android:textColor="#000000"
+                    android:textSize="15sp"
+                    />
+
+                <TextView
+                    android:layout_marginTop="3dp"
+                    android:id="@+id/txt_loaction"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/ic_location"
+                    android:drawablePadding="5dp"
                     android:text="Dubai"
                     android:textColor="#515151"
+                    android:textSize="13sp"
                     />
-
                 <TextView
-                    android:layout_weight="1"
+                    android:layout_marginTop="3dp"
                     android:id="@+id/txt_time"
-                    android:drawablePadding="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:drawableLeft="@drawable/ic_clock"
-                    android:gravity="center"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="13sp"
+                    android:drawablePadding="5dp"
                     android:text="2 years ago"
                     android:textColor="#515151"
+                    android:textSize="13sp"
                     />
+                <TableLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    >
+                    <TableRow
+                        android:layout_marginTop="3dp">
+                        <TextView
+                            android:id="@+id/catalogy"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:drawableLeft="@drawable/ic_apartment"
+                            android:drawablePadding="5dp"
+                            android:text="Villa"
+                            android:textColor="#515151"
+                            android:textSize="13sp"
+                            />
+                        <TextView
+                            android:layout_marginLeft="5dp"
+                            android:id="@+id/txt_s"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:drawableLeft="@drawable/ic_expland"
+                            android:drawablePadding="5dp"
+                            android:text="2 years ago"
+                            android:textColor="#515151"
+                            android:textSize="13sp"
+                            />
+                    </TableRow>
+                    <TableRow  android:layout_marginTop="3dp">
+                        <TextView
+                            android:id="@+id/txt_bedroom"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:drawableLeft="@drawable/ic_bedroom"
+                            android:drawablePadding="5dp"
+                            android:text="2 bed room"
+                            android:textColor="#515151"
+                            android:textSize="13sp"
+                            />
+
+                        <TextView
+                            android:layout_marginLeft="5dp"
+                            android:id="@+id/txt_flood"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:drawableLeft="@drawable/ic_floor"
+                            android:drawablePadding="5dp"
+                            android:text="3rd Flood"
+                            android:textColor="#515151"
+                            android:textSize="13sp"
+                         />
+                    </TableRow>
+                </TableLayout>
             </LinearLayout>
-            <LinearLayout
-                android:layout_weight="1"
-                android:layout_marginTop="3dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:weightSum="2"
-                >
-                <TextView
-                    android:layout_weight="1"
-                    android:id="@+id/catalogy"
-                    android:drawablePadding="5dp"
-                    android:drawableLeft="@drawable/ic_apartment"
-                    android:gravity="center"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="13sp"
-                    android:text="Villa"
-                    android:textColor="#515151"
-                    />
-
-                <TextView
-                    android:layout_weight="1"
-                    android:id="@+id/txt_s"
-                    android:layout_marginLeft="23dp"
-                    android:drawablePadding="5dp"
-                    android:drawableLeft="@drawable/ic_expland"
-                    android:gravity="center"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="13sp"
-                    android:text="2 years ago"
-                    android:textColor="#515151"
-                    />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_weight="1"
-                android:weightSum="2"
-                android:layout_marginTop="3dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                >
-                <TextView
-                    android:layout_weight="1"
-                    android:id="@+id/txt_bedroom"
-                    android:drawablePadding="5dp"
-                    android:drawableLeft="@drawable/ic_bedroom"
-                    android:gravity="center"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="13sp"
-                    android:text="2 bed room"
-                    android:textColor="#515151"
-                    />
-
-                <TextView
-                    android:layout_weight="1"
-                    android:id="@+id/txt_flood"
-                    android:layout_marginLeft="20dp"
-                    android:gravity="center"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="13sp"
-                    android:text="3rd Flood"
-                    android:textColor="#515151"
-                    />
-            </LinearLayout>
-
-
-
-
         </LinearLayout>
+
+
     </LinearLayout>
+</android.support.design.card.MaterialCardView>
 
-
-
-
-</LinearLayout>

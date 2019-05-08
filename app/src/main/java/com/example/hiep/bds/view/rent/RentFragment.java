@@ -1,5 +1,6 @@
 package com.example.hiep.bds.view.rent;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
@@ -19,7 +20,9 @@ import com.example.hiep.bds.model.Datum;
 import com.example.hiep.bds.utilts.ApiClient;
 import com.example.hiep.bds.utilts.ApiInterface;
 import com.example.hiep.bds.utilts.GetFragment;
+import com.example.hiep.bds.view.postAD.PorposeActivity;
 import com.example.hiep.bds.view.sale.GetDataView;
+import com.example.hiep.bds.view.search.SearchActivity;
 import java.util.ArrayList;
 import java.util.List;
 import retrofit2.Call;
@@ -30,7 +33,7 @@ public class RentFragment  extends GetFragment implements GetDataView {
 
     public RentFragment() {
     }
-    private FloatingActionButton fab;
+    private FloatingActionButton fab,fabSearch;
     private RecyclerView mRecyclerMostPopular;
     private DataAdapter mDiscoverAdapter;
     private List<Datum> mPopulars;
@@ -82,7 +85,7 @@ public class RentFragment  extends GetFragment implements GetDataView {
                 visibleItemCount = layoutManager1.getChildCount();
                 totallItemCount = layoutManager1.getItemCount();
                 postVisibleItems = layoutManager1.findFirstVisibleItemPosition();
-                if (dy > 0) {
+                if (dy >= 0) {
                     if (isLoading) {
                         if (totallItemCount > previous_total) {
                             isLoading = false;
@@ -107,6 +110,10 @@ public class RentFragment  extends GetFragment implements GetDataView {
                 {
                     fab.hide();
                 }
+                if (dy > 0 ||dy<0 && fabSearch.isShown())
+                {
+                    fabSearch.hide();
+                }
             }
 
             @Override
@@ -115,6 +122,7 @@ public class RentFragment  extends GetFragment implements GetDataView {
                 if (newState == RecyclerView.SCROLL_STATE_IDLE)
                 {
                     fab.show();
+                    fabSearch.show();
                 }
 
                 super.onScrollStateChanged(recyclerView, newState);
@@ -123,7 +131,15 @@ public class RentFragment  extends GetFragment implements GetDataView {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent intent = new Intent(getActivity(),PorposeActivity.class);
+                startActivity(intent);
+            }
+        });
+        fabSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), SearchActivity.class);
+                startActivity(intent);
             }
         });
         return rootView;
@@ -166,7 +182,7 @@ public class RentFragment  extends GetFragment implements GetDataView {
 
     private void init(View view) {
         fab = view.findViewById(R.id.fapDangtin);
-        fab.setImageResource(R.drawable.ic_dangtin);
+        fabSearch = view.findViewById(R.id.fapTimKiem);
         mRecyclerMostPopular = view.findViewById(R.id.recyclerSale);
         mPopulars = new ArrayList<>();
         iGetDiscoverPre = new DataPre(this);

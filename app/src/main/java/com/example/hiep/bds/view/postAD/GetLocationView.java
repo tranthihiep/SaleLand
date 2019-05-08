@@ -1,4 +1,4 @@
-package com.example.hiep.bds.view;
+package com.example.hiep.bds.view.postAD;
 
 import com.example.hiep.bds.model.modelLocation.LtsItem;
 import com.example.hiep.bds.utilts.GetInterface;
