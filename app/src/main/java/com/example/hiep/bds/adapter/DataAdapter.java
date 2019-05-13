@@ -279,6 +279,11 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.DiscoverHolder
             public void onClickDelete(int pos) {
 
             }
+
+            @Override
+            public void onClickEdit(int pos) {
+
+            }
         });
     }
 

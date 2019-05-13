@@ -12,6 +12,10 @@
         <item>Tin cao cấp</item>
         <item>Tin VIP</item>
     </string-array>
+    <string-array name="mucdich">
+        <item>Bán</item>
+        <item>Thuê</item>
+    </string-array>
     <string-array name="thue">
         <item>month</item>
         <item>year</item>
@@ -19,6 +23,14 @@
     <string-array name="ban">
         <item>m2</item>
         <item>total_area</item>
+    </string-array>
+
+    <string-array name="loaiBDSBDS">
+        <item>Deserunt</item>
+        <item>Ex</item>
+        <item>Harum</item>
+        <item>Omnis</item>
+        <item>Libero</item>
     </string-array>
     <string name="Open">Open</string>
     <string name="Close">Close</string>

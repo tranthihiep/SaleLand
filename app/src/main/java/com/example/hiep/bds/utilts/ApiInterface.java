@@ -8,7 +8,7 @@ import com.example.hiep.bds.model.Delete;
 import com.example.hiep.bds.model.Login;
 import com.example.hiep.bds.model.User;
 import com.example.hiep.bds.model.modelLocation.Huyen;
-import com.example.hiep.bds.model.modelLocation.LtsItem;
+import com.example.hiep.bds.model.modelLocation.Tinh;
 import com.example.hiep.bds.model.modelLocation.Phuong;
 import com.example.hiep.bds.model.postModel.DataPost;
 import java.util.List;
@@ -19,6 +19,7 @@ import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.Headers;
 import retrofit2.http.POST;
+import retrofit2.http.PUT;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
 
@@ -31,7 +32,7 @@ public interface ApiInterface {
     Call<DataDetail> getDataDetail(@Path("id") int id);
 
     @GET("api/cities")
-    Call<List<LtsItem>> getCity();
+    Call<List<Tinh>> getCity();
 
     @GET("api/cities/{id}/districts")
 
@@ -66,7 +67,18 @@ public interface ApiInterface {
             "Content-Type: application/json"
     })
     @POST("api/posts")
-    Call<DataPost>postData(@Header("Authorization") String authHeader, @Body DataPost dataPost);
+    Call<DataPost>postData(@Header("Authorization") String authHeader, @Body DataPost result);
+
+    //    @Multipart
+//    @POST("api/posts")
+//    Call<DataPost>postData(@Header("Authorization") String authHeader, @Part DataPost result,
+//            @Part MultipartBody.Part file);
+//    @Multipart
+//    @POST("api/posts")
+//    Call<DataPost>postData(@Header("Authorization") String authHeader,@Part("file\"; filename=\"pp.png.ipg\" ") RequestBody file , @Part("FirstName") RequestBody fname, @Part("Id") RequestBody id);
+
+    @GET("api/conveniences")
+    Call<List<Conveniences>> getConvenience();
 
     @GET("api/conveniences?type=interior")
     Call<List<Conveniences>> getAmenties();
@@ -87,6 +99,11 @@ public interface ApiInterface {
     })
     @DELETE("api/posts/{id}")
     Call<Delete> delete(@Header("Authorization") String authHeader,@Path("id") int id);
-//    @POST("api/posts/{id}/edit")
-//    Call<Delete> delete(@Header("Authorization") String authHeader,@Path("id") int id);
+
+    @Headers({
+            "Accept: application/json",
+            "Content-Type: application/json"
+    })
+    @PUT("api/posts/{id}")
+    Call<DataPost> edit(@Header("Authorization") String authHeader,@Body DataPost result, @Path("id") int id);
 }

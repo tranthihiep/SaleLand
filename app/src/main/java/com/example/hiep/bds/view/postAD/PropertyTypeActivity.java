@@ -21,7 +21,7 @@ public class PropertyTypeActivity extends AppCompatActivity {
     private RadioButton radioBietThu, radioNhaTro, radioDat,radioChungCu,radioVanPhong,
     radioNhaO, radioTrangTrai, radioNhakho;
     private Button btnCOntinue;
-    int type;
+    int type = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,7 +62,7 @@ public class PropertyTypeActivity extends AppCompatActivity {
                 if (radioGroup.getCheckedRadioButtonId() != -1)
                 {
                     SharedPreferences.Editor editor = getSharedPreferences("TYPE", MODE_PRIVATE).edit();
-                    editor.putInt("type", type);
+                    editor.putInt("loaiBDS", type);
                     editor.apply();
                     Intent intent = new Intent(PropertyTypeActivity.this,LocationInforActivity.class);
                     startActivity(intent);

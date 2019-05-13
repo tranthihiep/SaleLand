@@ -23,13 +23,11 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GridviewAdapter extends  RecyclerView.Adapter<GridviewAdapter.DiscoverHolder> {
+public class GridviewAdapter extends RecyclerView.Adapter<GridviewAdapter.DiscoverHolder> {
 
     private List<Distance> mMovies;
     private int mRowLayout;
-    public  Context mContext;
-    // private ValueFilter valueFilter;
-
+    public Context mContext;
     public GridviewAdapter(List<Distance> movies, int rowLayout, Context context) {
         this.mMovies = movies;
         this.mRowLayout = rowLayout;
@@ -42,8 +40,10 @@ public class GridviewAdapter extends  RecyclerView.Adapter<GridviewAdapter.Disco
         final GridviewAdapter.DiscoverHolder mViewHolder = new GridviewAdapter.DiscoverHolder(view);
         return mViewHolder;
     }
+
     public class DiscoverHolder extends RecyclerView.ViewHolder {
         private TextView mTextViewTitle, mTextViewmet;
+
         public DiscoverHolder(View v) {
             super(v);
             mTextViewTitle = v.findViewById(R.id.distance);
@@ -56,12 +56,10 @@ public class GridviewAdapter extends  RecyclerView.Adapter<GridviewAdapter.Disco
         final Distance movie = mMovies.get(position);
         holder.mTextViewTitle.setText(movie.getName());
         holder.mTextViewmet.setText(movie.getPivot().getMeters() + " m");
-
     }
 
     @Override
     public int getItemCount() {
         return mMovies.size();
     }
-
 }

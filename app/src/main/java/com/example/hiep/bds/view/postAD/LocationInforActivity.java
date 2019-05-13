@@ -1,34 +1,26 @@
 package com.example.hiep.bds.view.postAD;
 
 import android.annotation.SuppressLint;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.location.Address;
 import android.location.Geocoder;
-import android.os.Build;
 import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
-import com.example.hiep.bds.Presenter.GetLocation;
-import com.example.hiep.bds.Presenter.LocationPre;
+import com.example.hiep.bds.presenter.GetLocation;
 import com.example.hiep.bds.R;
 import com.example.hiep.bds.model.modelLocation.Huyen;
-import com.example.hiep.bds.model.modelLocation.LtsItem;
-import com.example.hiep.bds.model.modelLocation.Phuong;
+import com.example.hiep.bds.model.modelLocation.Tinh;
 import com.example.hiep.bds.utilts.ApiClient;
 import com.example.hiep.bds.utilts.ApiInterface;
 import com.example.hiep.bds.utilts.CustemSpinner;
-import com.example.hiep.bds.view.user.RegisterActivity;
 import com.google.android.gms.vision.barcode.Barcode;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -69,8 +61,7 @@ public class LocationInforActivity extends AppCompatActivity  {
                     editor.putInt("tinh", idTinh);
                     editor.putInt("huyen", idHuyen);
                     editor.putString("diachi", dc + ", " + huyenS + ", " + tinhS + ", Việt Nam");
-                    editor.putFloat("lat", (float) getLocationFromAddress(
-                            dc + ", " + huyenS + ", " + tinhS + ", Việt Nam").lat);
+                    editor.putFloat("lat", (float) getLocationFromAddress(dc + ", " + huyenS + ", " + tinhS + ", Việt Nam").lat);
                     editor.putFloat("long", (float) getLocationFromAddress(
                             dc + ", " + huyenS + ", " + tinhS + ", Việt Nam").lng);
                     editor.apply();
@@ -133,14 +124,14 @@ public class LocationInforActivity extends AppCompatActivity  {
 
     private void getData(){
         ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
-        Call<List<LtsItem>> call = apiService.getCity();
-        call.enqueue(new Callback<List<LtsItem>>() {
+        Call<List<Tinh>> call = apiService.getCity();
+        call.enqueue(new Callback<List<Tinh>>() {
             @Override
-            public void onResponse(Call<List<LtsItem>> call,
-                    final Response<List<LtsItem>> response) {
+            public void onResponse(Call<List<Tinh>> call,
+                    final Response<List<Tinh>> response) {
                 if (response.code() == 200) {
                     ArrayList<String> tp = new ArrayList<>();
-                    for (LtsItem movie : response.body()) {
+                    for (Tinh movie : response.body()) {
                         tp.add(movie.getName());
                     }
                     mCustemSpinner = new CustemSpinner(LocationInforActivity.this,
@@ -205,7 +196,7 @@ public class LocationInforActivity extends AppCompatActivity  {
             }
 
             @Override
-            public void onFailure(Call<List<LtsItem>> call, Throwable t) {
+            public void onFailure(Call<List<Tinh>> call, Throwable t) {
             }
         });
 

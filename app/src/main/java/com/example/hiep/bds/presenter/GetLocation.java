@@ -1,4 +1,4 @@
-package com.example.hiep.bds.Presenter;
+package com.example.hiep.bds.presenter;
 
 public interface GetLocation {
     void getLocation();

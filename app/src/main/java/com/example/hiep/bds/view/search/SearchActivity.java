@@ -1,18 +1,14 @@
 package com.example.hiep.bds.view.search;
 
-import android.app.SearchManager;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
@@ -21,21 +17,17 @@ import android.widget.TextView;
 import android.widget.Toast;
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import com.example.hiep.bds.Presenter.DataPre;
-import com.example.hiep.bds.Presenter.GetData;
-import com.example.hiep.bds.Presenter.GetLocation;
-import com.example.hiep.bds.Presenter.LocationPre;
+import com.example.hiep.bds.presenter.DataPre;
+import com.example.hiep.bds.presenter.GetData;
 import com.example.hiep.bds.R;
 import com.example.hiep.bds.adapter.DataAdapter;
 import com.example.hiep.bds.model.DataResponnse;
 import com.example.hiep.bds.model.Datum;
 import com.example.hiep.bds.model.modelLocation.Huyen;
-import com.example.hiep.bds.model.modelLocation.LtsItem;
+import com.example.hiep.bds.model.modelLocation.Tinh;
 import com.example.hiep.bds.utilts.ApiClient;
 import com.example.hiep.bds.utilts.ApiInterface;
 import com.example.hiep.bds.utilts.CustemSpinner;
-import com.example.hiep.bds.view.postAD.GetLocationView;
-import com.example.hiep.bds.view.postAD.LocationInforActivity;
 import com.example.hiep.bds.view.sale.GetDataView;
 import java.util.ArrayList;
 import java.util.List;
@@ -178,15 +170,15 @@ public class SearchActivity extends AppCompatActivity implements GetDataView{
         mDiscoverAdapter = new DataAdapter(movies, R.layout.item_ads, getApplicationContext());
         mRecyclerMostPopular.setAdapter(mDiscoverAdapter);
         ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
-        Call<List<LtsItem>> call = apiService.getCity();
-        call.enqueue(new Callback<List<LtsItem>>() {
+        Call<List<Tinh>> call = apiService.getCity();
+        call.enqueue(new Callback<List<Tinh>>() {
             @Override
-            public void onResponse(Call<List<LtsItem>> call,
-                    final Response<List<LtsItem>> response) {
+            public void onResponse(Call<List<Tinh>> call,
+                    final Response<List<Tinh>> response) {
                 if (response.code() == 200) {
                     ArrayList<String> tp = new ArrayList<>();
                     tp.add("Chọn Tỉnh/TP");
-                    for (LtsItem movie : response.body()) {
+                    for (Tinh movie : response.body()) {
                         tp.add(movie.getName());
                     }
                     mCustemSpinner = new CustemSpinner(SearchActivity.this,
@@ -253,7 +245,7 @@ public class SearchActivity extends AppCompatActivity implements GetDataView{
             }
 
             @Override
-            public void onFailure(Call<List<LtsItem>> call, Throwable t) {
+            public void onFailure(Call<List<Tinh>> call, Throwable t) {
             }
         });
 

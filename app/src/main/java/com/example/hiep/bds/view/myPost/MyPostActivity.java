@@ -3,8 +3,6 @@ package com.example.hiep.bds.view.myPost;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.support.annotation.NonNull;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -14,24 +12,17 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
-import com.example.hiep.bds.Presenter.DataMyPostPre;
-import com.example.hiep.bds.Presenter.DataPre;
-import com.example.hiep.bds.Presenter.GetData;
-import com.example.hiep.bds.Presenter.GetDataMyPost;
+import com.example.hiep.bds.presenter.DataMyPostPre;
+import com.example.hiep.bds.presenter.GetDataMyPost;
 import com.example.hiep.bds.R;
-import com.example.hiep.bds.adapter.DataAdapter;
 import com.example.hiep.bds.adapter.DataMyPostAdapter;
 import com.example.hiep.bds.model.DataMyPost;
-import com.example.hiep.bds.model.Datum;
 import com.example.hiep.bds.model.Delete;
 import com.example.hiep.bds.utilts.ApiClient;
 import com.example.hiep.bds.utilts.ApiInterface;
 import com.example.hiep.bds.utilts.OnItemClick;
-import com.example.hiep.bds.view.detailData.DetailData;
 import com.example.hiep.bds.view.home.HomeActivity;
 import com.example.hiep.bds.view.postAD.PorposeActivity;
-import com.example.hiep.bds.view.sale.GetDataView;
-import java.util.ArrayList;
 import java.util.List;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -39,9 +30,9 @@ import retrofit2.Response;
 
 public class MyPostActivity extends AppCompatActivity  implements GetDataMyPostView {
 
-    private RecyclerView mRecyclerMostPopular;
-    private DataMyPostAdapter mDiscoverAdapter;
-    private GetDataMyPost iGetDiscoverPre;
+    private RecyclerView mRecyclerView;
+    private DataMyPostAdapter mDataMyPostAdapter;
+    private GetDataMyPost iGetDataMyPost;
     private TextView txtShow;
     private Toolbar mToolbar;
 
@@ -53,19 +44,19 @@ public class MyPostActivity extends AppCompatActivity  implements GetDataMyPostV
         init();
         final LinearLayoutManager layoutManager1 =
                 new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
-        mRecyclerMostPopular.setLayoutManager(layoutManager1);
-        getDataMovieFromService();
+        mRecyclerView.setLayoutManager(layoutManager1);
+        getDataFromServer();
         setToolBar();
     }
 
-    private void getDataMovieFromService() {
-        iGetDiscoverPre.getDataMyPost("Bearer " + HomeActivity.TOKEN);
+    private void getDataFromServer() {
+        iGetDataMyPost.getDataMyPost("Bearer " + HomeActivity.TOKEN);
     }
 
     private void init() {
         mToolbar = findViewById(R.id.toolBarMyPost);
-        mRecyclerMostPopular = findViewById(R.id.recyclerMyPost);
-        iGetDiscoverPre = new DataMyPostPre(this);
+        mRecyclerView = findViewById(R.id.recyclerMyPost);
+        iGetDataMyPost = new DataMyPostPre(this);
         txtShow = findViewById(R.id.txtShow);
     }
     private void setToolBar(){
@@ -82,10 +73,10 @@ public class MyPostActivity extends AppCompatActivity  implements GetDataMyPostV
         mToolbar.setTitleTextColor(getResources().getColor(R.color.colorWhile));
     }
     @Override
-    public void getListMovieSuccess(final List<DataMyPost> movies) {
+    public void getDataMyPostSuccess(final List<DataMyPost> movies) {
         if (movies.size()==0){
             txtShow.setVisibility(View.VISIBLE);
-            mRecyclerMostPopular.setVisibility(View.GONE);
+            mRecyclerView.setVisibility(View.GONE);
             txtShow.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -95,10 +86,10 @@ public class MyPostActivity extends AppCompatActivity  implements GetDataMyPostV
             });
         } else {
             txtShow.setVisibility(View.GONE);
-            mRecyclerMostPopular.setVisibility(View.VISIBLE);
-            mDiscoverAdapter = new DataMyPostAdapter(movies, R.layout.item_my_post, getContext());
-            mRecyclerMostPopular.setAdapter(mDiscoverAdapter);
-            mDiscoverAdapter.setOnItemClickListener(new OnItemClick() {
+            mRecyclerView.setVisibility(View.VISIBLE);
+            mDataMyPostAdapter = new DataMyPostAdapter(movies, R.layout.item_my_post, getContext());
+            mRecyclerView.setAdapter(mDataMyPostAdapter);
+            mDataMyPostAdapter.setOnItemClickListener(new OnItemClick() {
                 @Override
                 public void onClick(View v, int adapterPosition, boolean b) {
 
@@ -149,6 +140,12 @@ public class MyPostActivity extends AppCompatActivity  implements GetDataMyPostV
                     builder.show();
                 }
 
+                @Override
+                public void onClickEdit(int pos) {
+                    Intent intent = new Intent(MyPostActivity.this, EditActivity.class);
+                    intent.putExtra("Key_2", movies.get(pos).getId());
+                    startActivity(intent);
+                }
             });
 
 
@@ -158,7 +155,7 @@ public class MyPostActivity extends AppCompatActivity  implements GetDataMyPostV
     }
 
     @Override
-    public void getListMovieFailure() {
+    public void getDataMyPostFailure() {
 
     }
 
@@ -168,7 +165,7 @@ public class MyPostActivity extends AppCompatActivity  implements GetDataMyPostV
     }
     public void removeItem(List<DataMyPost> movies,int position) {
         movies.remove(position);
-        mDiscoverAdapter.notifyItemRemoved(position);
+        mDataMyPostAdapter.notifyItemRemoved(position);
     }
 
 }

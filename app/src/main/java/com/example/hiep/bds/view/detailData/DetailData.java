@@ -13,8 +13,8 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ArrayAdapter;
 import android.widget.GridView;
-import com.example.hiep.bds.Presenter.DataDetailPre;
-import com.example.hiep.bds.Presenter.GetDataDetail;
+import com.example.hiep.bds.presenter.DataDetailPre;
+import com.example.hiep.bds.presenter.GetDataDetail;
 import com.example.hiep.bds.R;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
@@ -54,21 +54,21 @@ public class DetailData extends AppCompatActivity
     private List<Fragment> mFragments;
     private ViewPager mViewPager;
     private TabLayout mTabLayout;
-    private GetDataDetail iGetDiscoverPre;
+    private GetDataDetail iGetDataDetail;
     private static ArrayList<String> mConveniences = new ArrayList<>();
-    private static List<Distance> mdistance = new ArrayList<>();
+    private static List<Distance> mDistance = new ArrayList<>();
     private static User mUser = new User();
-    private ImageView img1,img2, imgFull;
+    private ImageView img1,img2, mImageView;
     private String[] mTitles = { "Chi tiết", "Liên hệ","Bản đồ" };
-    private TextView txtTitle, txtPrice, txtLoaction, txtApartment,
-            txtS, txtBedRoom, txtBath,txtBats,txtFlood,txtSale,txtbelcony,
-            txtDola,txtThoathua;
+    private TextView mTextViewTitle, mTextViewPrice, mTextViewLocation, mTextViewTypeBDS,
+            mTextViewArea, mTextViewBedRoom, mTextViewBath, mTextViewTolet, mTextViewFloor,
+            mTextViewPurpose, mTextViewBalancy, mTextViewPrice2, mTextViewYes;
     private AgentInfor mAgentInforTab = new AgentInfor();
-    private f mDescriptionTab = new f();
+    private Describe mDescriptionTab = new Describe();
     private MapsTab mMapsTab = new MapsTab();
     private String  mNameMovies;
     private int id;
-    private static String summary,title;
+    private static String summary ,title;
     private static float longi = 0;
     private static  float lat = 0;
 
@@ -84,16 +84,16 @@ public class DetailData extends AppCompatActivity
         init();
         setToolBar();
         getBundle();
-        getDataMovieFromService();
+        getDataFromServer();
         setView();
     }
     private void setView() {
         setTabLayout();
     }
 
-    private void getDataMovieFromService() {
+    private void getDataFromServer() {
 
-        iGetDiscoverPre.getDetailMovie(id);
+        iGetDataDetail.getDetailMovie(id);
     }
     private void setToolBar() {
         setSupportActionBar(mToolbar);
@@ -130,25 +130,25 @@ public class DetailData extends AppCompatActivity
     private void init() {
         mCollapsingToolbarLayout = findViewById(R.id.collapsing_toolbar_movie);
         mToolbar = findViewById(R.id.toolBarMovieDetail);
-        imgFull = findViewById(R.id.img_full);
+        mImageView = findViewById(R.id.img_full);
         img1 = findViewById(R.id.img1);
         img2 = findViewById(R.id.img2);
-        txtTitle =findViewById(R.id.txtTittle);
-        txtApartment = findViewById(R.id.apartment);
-        txtPrice = findViewById(R.id.txtPrice);
-        txtBath = findViewById(R.id.txtBath);
-        txtBats = findViewById(R.id.baths);
-        txtBedRoom = findViewById(R.id.txtBedRomm);
-        txtLoaction = findViewById(R.id.txtLoaction);
-        txtS = findViewById(R.id.S);
-        txtSale = findViewById(R.id.sale);
-        txtbelcony = findViewById(R.id.belcony);
-        txtFlood = findViewById(R.id.flod);
-        txtDola = findViewById(R.id.giadola);
+        mTextViewTitle =findViewById(R.id.txtTittle);
+        mTextViewTypeBDS = findViewById(R.id.apartment);
+        mTextViewPrice = findViewById(R.id.txtPrice);
+        mTextViewBath = findViewById(R.id.txtBath);
+        mTextViewTolet = findViewById(R.id.baths);
+        mTextViewBedRoom = findViewById(R.id.txtBedRomm);
+        mTextViewLocation = findViewById(R.id.txtLoaction);
+        mTextViewArea = findViewById(R.id.S);
+        mTextViewPurpose = findViewById(R.id.sale);
+        mTextViewBalancy = findViewById(R.id.belcony);
+        mTextViewFloor = findViewById(R.id.flod);
+        mTextViewPrice2 = findViewById(R.id.giadola);
         mViewPager = (ViewPager) findViewById(R.id.viewPagerDetails);
         mTabLayout = (TabLayout) findViewById(R.id.tabLayout);
-        iGetDiscoverPre = new DataDetailPre(this);
-        txtThoathua = findViewById(R.id.thoathuan);
+        iGetDataDetail = new DataDetailPre(this);
+        mTextViewYes = findViewById(R.id.thoathuan);
     }
 
     private void setTabLayout() {
@@ -177,9 +177,9 @@ public class DetailData extends AppCompatActivity
     }
 
     @Override
-    public void getDetailMovieSuccess(DataDetail movieDetails) {
+    public void getDataDetailSuccess(DataDetail movieDetails) {
         mNameMovies = movieDetails.getTitle();
-        mdistance = movieDetails.getDistances();
+        mDistance = movieDetails.getDistances();
         mUser = movieDetails.getUser();
         longi = Float.parseFloat(movieDetails.getLongitude());
         longi = Float.parseFloat(movieDetails.getLongitude());
@@ -189,29 +189,32 @@ public class DetailData extends AppCompatActivity
                 mConveniences.add(movie.getName());
             }
         summary = movieDetails.getDescription();
-        Picasso.get().load("http://project-property.herokuapp.com/uploads/images/"+ movieDetails.getImage()).into(imgFull);
-        txtFlood.setText(movieDetails.getDetail().getFloor()+" Tầng");
-        if (movieDetails.getPurpose().toString().equalsIgnoreCase("sale")){
-            txtSale.setText("Mục đích: Bán");
-        }else txtSale.setText("Mục đích: Cho thuê");
-        if (movieDetails.getNegotiable() == 1){
-            txtThoathua.setText("Thỏa thuận");
-        }else  txtThoathua.setText("Không thỏa thuận");
+        Picasso.get().load("http://project-property.herokuapp.com/uploads/images/"+ movieDetails.getImage()).into(
 
-        txtS.setText(movieDetails.getArea()+ " m²");
-        txtLoaction.setText(movieDetails.getAddress());
-        txtBedRoom.setText(movieDetails.getDetail().getBedRoom()+" Phòng ngủ");
-        txtBath.setText(movieDetails.getDetail().getBath()+ " Phòng tắm");
-        txtBats.setText(movieDetails.getDetail().getToilet()+ " Toilet");
-        txtPrice.setText(Unit.formatPrice(Long.valueOf(movieDetails.getPrice()))+" VND/ " + movieDetails.getUnit());
-        txtDola.setText(Unit.formatPrice(Long.valueOf(movieDetails.getPrice()))+" VND/ " + movieDetails.getUnit());
-        txtApartment.setText(movieDetails.getPropertyType().getName());
-        txtbelcony.setText(movieDetails.getDetail().getBalcony() +" Ban công");
-        txtTitle.setText(movieDetails.getTitle());
+
+                mImageView);
+        mTextViewFloor.setText(movieDetails.getDetail().getFloor()+" Tầng");
+        if (movieDetails.getPurpose().toString().equalsIgnoreCase("sale")){
+            mTextViewPurpose.setText("Mục đích: Bán");
+        }else mTextViewPurpose.setText("Mục đích: Cho thuê");
+        if (movieDetails.getNegotiable() == 1){
+            mTextViewYes.setText("Thỏa thuận");
+        }else  mTextViewYes.setText("Không thỏa thuận");
+
+        mTextViewArea.setText(movieDetails.getArea()+ " m²");
+        mTextViewLocation.setText(movieDetails.getAddress());
+        mTextViewBedRoom.setText(movieDetails.getDetail().getBedRoom()+" Phòng ngủ");
+        mTextViewBath.setText(movieDetails.getDetail().getBath()+ " Phòng tắm");
+        mTextViewTolet.setText(movieDetails.getDetail().getToilet()+ " Toilet");
+        mTextViewPrice.setText(Unit.formatPrice(Long.valueOf(movieDetails.getPrice()))+" VND/ " + movieDetails.getUnit());
+        mTextViewPrice2.setText(Unit.formatPrice(Long.valueOf(movieDetails.getPrice()))+" VND/ " + movieDetails.getUnit());
+        mTextViewTypeBDS.setText(movieDetails.getPropertyType().getName());
+        mTextViewBalancy.setText(movieDetails.getDetail().getBalcony() +" Ban công");
+        mTextViewTitle.setText(movieDetails.getTitle());
     }
 
     @Override
-    public void getDetailMovieFailure() {
+    public void getDataDetailFailure() {
 
     }
 
@@ -220,13 +223,13 @@ public class DetailData extends AppCompatActivity
         return null;
     }
 
-    public static class f extends GetFragment {
+    public static class Describe extends GetFragment {
 
         public ExpandableTextView mExpandableTextView;
         GridView mGridView;
         RecyclerView mGridViewDistance;
         private GridLayoutManager layoutManager;
-        public f() {
+        public Describe() {
             // Required empty public constructor
         }
 
@@ -245,7 +248,7 @@ public class DetailData extends AppCompatActivity
             layoutManager = new GridLayoutManager(getActivity(), 2);
             mGridViewDistance.setHasFixedSize(true);
             mGridViewDistance.setLayoutManager(layoutManager);
-            GridviewAdapter adapter = new GridviewAdapter(mdistance,R.layout.item_distance,getActivity());
+            GridviewAdapter adapter = new GridviewAdapter(mDistance,R.layout.item_distance,getActivity());
             mGridViewDistance.setAdapter(adapter);
             return view;
         }
@@ -307,17 +310,6 @@ public class DetailData extends AppCompatActivity
 
             return view;
         }
-
-
-        /**
-         * Manipulates the map once available.
-         * This callback is triggered when the map is ready to be used.
-         * This is where we can add markers or lines, add listeners or move the camera. In this case,
-         * we just add a marker near Sydney, Australia.
-         * If Google Play services is not installed on the device, the user will be prompted to install
-         * it inside the SupportMapFragment. This method will only be triggered once the user has
-         * installed Google Play services and returned to the app.
-         */
         @Override
         public void onMapReady(GoogleMap googleMap) {
             mMap = googleMap;

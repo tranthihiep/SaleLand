@@ -40,16 +40,6 @@
              sign the APK for publishing.
              You can define the keys for the debug and release targets in src/debug/ and src/release/. 
         -->
-
-        <activity
-            android:name=".view.tab.MapsTab"
-            android:label="@string/title_activity_maps">
-        </activity>
-        <activity
-            android:name=".view.maps.Main2Activity"
-            android:label="@string/title_activity_main2"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
         <activity
             android:name=".view.detailData.DetailData"
             android:theme="@style/theme"/>
@@ -98,7 +88,11 @@
             android:name=".view.search.SearchActivity"
             android:theme="@style/theme">
         </activity>
-        <activity android:name=".view.myPost.MyPostActivity"
+        <activity
+            android:name=".view.myPost.MyPostActivity"
+            android:theme="@style/theme">
+        </activity>
+        <activity android:name=".view.myPost.EditActivity"
             android:theme="@style/theme">
         </activity>
     </application>

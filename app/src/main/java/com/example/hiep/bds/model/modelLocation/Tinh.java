@@ -3,7 +3,7 @@ package com.example.hiep.bds.model.modelLocation;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class LtsItem {
+public class Tinh {
     @SerializedName("id")
     @Expose
     private Integer id;

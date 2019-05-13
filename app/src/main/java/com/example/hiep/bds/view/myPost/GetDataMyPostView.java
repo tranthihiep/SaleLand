@@ -6,6 +6,6 @@ import com.example.hiep.bds.utilts.GetInterface;
 import java.util.List;
 
 public interface GetDataMyPostView  extends GetInterface {
-    public void getListMovieSuccess(List<DataMyPost> movies);
-    public void getListMovieFailure();
+    public void getDataMyPostSuccess(List<DataMyPost> movies);
+    public void getDataMyPostFailure();
 }

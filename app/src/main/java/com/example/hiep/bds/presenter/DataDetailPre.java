@@ -1,13 +1,10 @@
-package com.example.hiep.bds.Presenter;
+package com.example.hiep.bds.presenter;
 
 import com.example.hiep.bds.model.DataDetail;
-import com.example.hiep.bds.model.DataResponnse;
 import com.example.hiep.bds.utilts.ApiClient;
 import com.example.hiep.bds.utilts.ApiInterface;
 import com.example.hiep.bds.utilts.GetView;
 import com.example.hiep.bds.view.detailData.GetDataDetailView;
-import com.example.hiep.bds.view.sale.GetDataView;
-import java.util.List;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -25,15 +22,15 @@ public class DataDetailPre extends GetView<GetDataDetailView> implements GetData
             @Override
             public void onResponse(Call<DataDetail> call, Response<DataDetail> response) {
                 if (response.code() == 200) {
-                    presenter.getDetailMovieSuccess((DataDetail) response.body());
+                    presenter.getDataDetailSuccess((DataDetail) response.body());
                 } else {
-                    presenter.getDetailMovieFailure();
+                    presenter.getDataDetailFailure();
                 }
             }
 
             @Override
             public void onFailure(Call<DataDetail> call, Throwable t) {
-                presenter.getDetailMovieFailure();
+                presenter.getDataDetailFailure();
             }
         });
     }

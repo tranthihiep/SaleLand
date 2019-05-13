@@ -20,21 +20,16 @@ public class AmentiesAdapter extends BaseAdapter {
     List<Conveniences> users;
     LayoutInflater inflater;
 
-    //short to create constructer using command+n for mac & Alt+Insert for window
-
-
     public AmentiesAdapter(Context activity) {
         this.activity = activity;
     }
 
     public AmentiesAdapter(Context activity, List<Conveniences> users) {
-        this.activity   = activity;
-        this.users      = users;
+        this.activity = activity;
+        this.users = users;
 
-        inflater        =
-                (LayoutInflater) activity.getSystemService(activity.LAYOUT_INFLATER_SERVICE);
+        inflater = (LayoutInflater) activity.getSystemService(activity.LAYOUT_INFLATER_SERVICE);
     }
-
 
     @Override
     public int getCount() {
@@ -56,43 +51,42 @@ public class AmentiesAdapter extends BaseAdapter {
 
         ViewHolder holder = null;
 
-        if (view == null){
+        if (view == null) {
 
             view = inflater.inflate(R.layout.item_amenties, viewGroup, false);
 
             holder = new ViewHolder();
 
-            holder.tvUserName = (TextView)view.findViewById(R.id.tv_user_name);
+            holder.tvUserName = (TextView) view.findViewById(R.id.tv_user_name);
             holder.ivCheckBox = (ImageView) view.findViewById(R.id.iv_check_box);
 
             view.setTag(holder);
-        }else
-            holder = (ViewHolder)view.getTag();
+        } else {
+            holder = (ViewHolder) view.getTag();
+        }
 
         Conveniences model = users.get(i);
 
         holder.tvUserName.setText(model.getName());
 
-        if (model.isChecked())
+        if (model.isChecked()) {
             holder.ivCheckBox.setBackgroundResource(R.drawable.checked);
-
-        else
+        } else {
             holder.ivCheckBox.setBackgroundResource(R.drawable.check);
+        }
 
         return view;
-
     }
 
-    public void updateRecords(List<Conveniences> users){
+    public void updateRecords(List<Conveniences> users) {
         this.users = users;
 
         notifyDataSetChanged();
     }
 
-    class ViewHolder{
+    class ViewHolder {
 
         TextView tvUserName;
         ImageView ivCheckBox;
-
     }
 }

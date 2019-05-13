@@ -24,34 +24,35 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DataMyPostAdapter extends RecyclerView.Adapter<DataMyPostAdapter.DiscoverHolder>{
+public class DataMyPostAdapter extends RecyclerView.Adapter<DataMyPostAdapter.DiscoverHolder> {
 
     private List<DataMyPost> mMovies;
     private int mRowLayout;
     public Context mContext;
     private OnItemClick mListener;
+
     public DataMyPostAdapter(List<DataMyPost> movies, int rowLayout, Context context) {
         this.mMovies = movies;
         this.mRowLayout = rowLayout;
         this.mContext = context;
     }
+
     public void setOnItemClickListener(OnItemClick listener) {
         mListener = listener;
     }
-
 
     @Override
     public DataMyPostAdapter.DiscoverHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(mRowLayout, parent, false);
         final DataMyPostAdapter.DiscoverHolder mViewHolder = new DataMyPostAdapter.
-                DiscoverHolder(view,mListener);
+                DiscoverHolder(view, mListener);
         return mViewHolder;
     }
 
-    public class DiscoverHolder extends RecyclerView.ViewHolder  {
-        private ImageView mImageView,mImageViewDelete;
+    public class DiscoverHolder extends RecyclerView.ViewHolder {
+        private ImageView mImageView, mImageViewDelete, mImageViewEdit;
         private TextView mTextViewTitle, mTextViewPrice, mTextViewLoaction;
-       // private OnItemClick itemClickListener;
+        // private OnItemClick itemClickListener;
 
         public DiscoverHolder(View v, final OnItemClick listener) {
             super(v);
@@ -60,6 +61,7 @@ public class DataMyPostAdapter extends RecyclerView.Adapter<DataMyPostAdapter.Di
             mTextViewPrice = v.findViewById(R.id.txt_price_my_post);
             mTextViewLoaction = v.findViewById(R.id.txt_loaction_my_post);
             mImageViewDelete = v.findViewById(R.id.img_delete);
+            mImageViewEdit = v.findViewById(R.id.img_edit);
             v.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -82,14 +84,22 @@ public class DataMyPostAdapter extends RecyclerView.Adapter<DataMyPostAdapter.Di
                     }
                 }
             });
-
+            mImageViewEdit.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (listener != null) {
+                        int position = getAdapterPosition();
+                        if (position != RecyclerView.NO_POSITION) {
+                            listener.onClickEdit(position);
+                        }
+                    }
+                }
+            });
         }
-
     }
 
     @Override
-    public void onBindViewHolder(DataMyPostAdapter.DiscoverHolder holder,
-            final int position) {
+    public void onBindViewHolder(DataMyPostAdapter.DiscoverHolder holder, final int position) {
         final DataMyPost movie = mMovies.get(position);
         holder.mTextViewTitle.setText(movie.getTitle());
         holder.mTextViewLoaction.setText(movie.getAddress());
@@ -98,24 +108,10 @@ public class DataMyPostAdapter extends RecyclerView.Adapter<DataMyPostAdapter.Di
         Picasso.get()
                 .load("http://project-property.herokuapp.com/uploads/images/" + movie.getImage())
                 .into(holder.mImageView);
-
-//        holder.setItemClickListener(new OnItemClick() {
-//            @Override
-//            public void onClick(View v, int adapterPosition, boolean b) {
-//
-//                Bundle bundle = new Bundle();
-//                bundle.putInt("id", movie.getId());
-//                Intent i = new Intent(mContext, DetailData.class);
-//                i.putExtras(bundle);
-//                mContext.startActivity(i);
-//            }
-//        });
-
     }
 
     @Override
     public int getItemCount() {
         return mMovies.size();
     }
-
 }

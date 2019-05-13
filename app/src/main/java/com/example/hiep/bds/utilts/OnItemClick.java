@@ -6,4 +6,5 @@ public interface OnItemClick {
     public void onClick(View v, int adapterPosition, boolean b);
     public void onClickItem(int pos);
     public void onClickDelete(int pos);
+    public void onClickEdit(int pos);
 }

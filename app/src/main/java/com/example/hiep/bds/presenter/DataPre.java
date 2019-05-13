@@ -1,4 +1,4 @@
-package com.example.hiep.bds.Presenter;
+package com.example.hiep.bds.presenter;
 
 import com.example.hiep.bds.model.DataResponnse;
 import com.example.hiep.bds.view.sale.GetDataView;

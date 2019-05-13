@@ -5,6 +5,7 @@ import com.example.hiep.bds.model.Type;
 import com.example.hiep.bds.model.User;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import java.util.HashMap;
 import java.util.List;
 
 public class DataPost {
@@ -65,13 +66,9 @@ public class DataPost {
     @SerializedName("conveniences")
     @Expose
     private List<Integer> conveniences;
-    @SerializedName("fImage")
-    @Expose
-    private List<String> fImage;
-
     @SerializedName("distances")
     @Expose
-    private List<Dis> distances;
+    private HashMap<Integer, Integer> distances;
     @SerializedName("start_date")
     @Expose
     private String startDate;
@@ -106,8 +103,8 @@ public class DataPost {
     public DataPost(String title, String purpose, Float price, Float area, String description,
             Integer districtId, Integer cityId, Integer typeId, String address, Float latitude,
             Float longitude, Integer propertyTypeId, Integer floor, Integer bedRoom, Integer bath,
-            Integer balcony, Integer toilet, List<Integer> conveniences, List<Dis> distances,
-            String startDate, String endDate, String unit, int negotiable, List<String> fImage) {
+            Integer balcony, Integer toilet, List<Integer> conveniences, HashMap<Integer, Integer> distances,
+            String startDate, String endDate, String unit, int negotiable) {
         this.title = title;
         this.purpose = purpose;
         this.price = price;
@@ -131,16 +128,8 @@ public class DataPost {
         this.endDate = endDate;
         this.unit = unit;
         this.negotiable = negotiable;
-        this.fImage = fImage;
     }
 
-    public List<String> getfImage() {
-        return fImage;
-    }
-
-    public void setfImage(List<String> fImage) {
-        this.fImage = fImage;
-    }
 
     public void setNegotiable(int negotiable) {
         this.negotiable = negotiable;
@@ -298,11 +287,11 @@ public class DataPost {
         this.conveniences = conveniences;
     }
 
-    public List<Dis> getDistances() {
+    public HashMap<Integer, Integer> getDistances() {
         return distances;
     }
 
-    public void setDistances(List<Dis> distances) {
+    public void setDistances(HashMap<Integer, Integer> distances) {
         this.distances = distances;
     }
 

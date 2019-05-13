@@ -1,35 +1,20 @@
 package com.example.hiep.bds.view.postAD;
 
-import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.util.SparseBooleanArray;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.BaseAdapter;
 import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.CheckedTextView;
 import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.Toast;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import com.example.hiep.bds.R;
 import com.example.hiep.bds.adapter.AmentiesAdapter;
 import com.example.hiep.bds.model.Conveniences;
-import com.example.hiep.bds.model.modelLocation.Huyen;
 import com.example.hiep.bds.utilts.ApiClient;
 import com.example.hiep.bds.utilts.ApiInterface;
-import com.example.hiep.bds.utilts.CustemSpinner;
 import java.util.ArrayList;
 import java.util.List;
 import retrofit2.Call;
@@ -43,8 +28,8 @@ public class AmentiesActivity extends AppCompatActivity {
     Button mButton;
     @BindView(R.id.listview)
     ListView mListView;
-    List<Conveniences> initItemList;
-    AmentiesAdapter adapter;
+    List<Conveniences> mConveniences;
+    AmentiesAdapter mAmentiesAdapter;
     ArrayList<Integer> amen;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,7 +45,7 @@ public class AmentiesActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
-                Conveniences model = initItemList.get(i);
+                Conveniences model = mConveniences.get(i);
 
                 if (model.isChecked())
                     model.setAction(false);
@@ -68,19 +53,19 @@ public class AmentiesActivity extends AppCompatActivity {
                 else
                     model.setAction(true);
 
-                initItemList.set(i, model);
+                mConveniences.set(i, model);
 
-                //now update adapter
-                adapter.updateRecords(initItemList);
+                //now update mAmentiesAdapter
+                mAmentiesAdapter.updateRecords(mConveniences);
             }
         });
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 amen = new ArrayList<>();
-                for (int i = 0 ; i<initItemList.size();i++){
-                    if (initItemList.get(i).isChecked() == true){
-                        amen.add(initItemList.get(i).getId());
+                for (int i = 0 ; i< mConveniences.size();i++){
+                    if (mConveniences.get(i).isChecked() == true){
+                        amen.add(mConveniences.get(i).getId());
                     }
                 }
                 Intent intent = new Intent(AmentiesActivity.this,PropertyDetailActivity.class);
@@ -100,13 +85,12 @@ public class AmentiesActivity extends AppCompatActivity {
             public void onResponse(Call<List<Conveniences>> call, final Response<List<Conveniences>> response) {
                 if (response.code() == 200) {
 
-                    initItemList = response.body();
-                    for (int  i = 0 ; i< initItemList.size();i++){
-                        initItemList.get(i).setAction(false);
+                    mConveniences = response.body();
+                    for (int  i = 0 ; i< mConveniences.size();i++){
+                        mConveniences.get(i).setAction(false);
                     }
-                    adapter = new AmentiesAdapter(getApplicationContext(),
-                            initItemList);
-                    mListView.setAdapter(adapter);
+                    mAmentiesAdapter = new AmentiesAdapter(getApplicationContext(), mConveniences);
+                    mListView.setAdapter(mAmentiesAdapter);
 
                 } else {
                 }

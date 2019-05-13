@@ -1,6 +1,6 @@
-package com.example.hiep.bds.Presenter;
+package com.example.hiep.bds.presenter;
 
-import com.example.hiep.bds.model.modelLocation.LtsItem;
+import com.example.hiep.bds.model.modelLocation.Tinh;
 import com.example.hiep.bds.utilts.ApiClient;
 import com.example.hiep.bds.utilts.ApiInterface;
 import com.example.hiep.bds.utilts.GetView;
@@ -18,10 +18,10 @@ public class LocationPre extends GetView<GetLocationView> implements GetLocation
     @Override
     public void getLocation() {
         ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
-        Call<List<LtsItem>> call = apiService.getCity();
-        call.enqueue(new Callback<List<LtsItem>>() {
+        Call<List<Tinh>> call = apiService.getCity();
+        call.enqueue(new Callback<List<Tinh>>() {
             @Override
-            public void onResponse(Call<List<LtsItem>> call, Response<List<LtsItem>> response) {
+            public void onResponse(Call<List<Tinh>> call, Response<List<Tinh>> response) {
                 if (response.code() == 200) {
                     presenter.getListLocationSucces(response.body());
                 } else {
@@ -30,7 +30,7 @@ public class LocationPre extends GetView<GetLocationView> implements GetLocation
             }
 
             @Override
-            public void onFailure(Call<List<LtsItem>> call, Throwable t) {
+            public void onFailure(Call<List<Tinh>> call, Throwable t) {
                 presenter.getListLocationFailure();
             }
         });

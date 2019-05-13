@@ -73,19 +73,7 @@ public class HomeActivity extends AppCompatActivity {
                 }
             });
         }
-//        if (TOKEN != null && getSupportActionBar().getTitle().toString().equalsIgnoreCase("")){
-//            SharedPreferences preferences =getSharedPreferences("Login",MODE_PRIVATE);
-//            SharedPreferences.Editor editor = preferences.edit();
-//            editor.clear();
-//            editor.commit();
-//        }
 
-
-//        if (Build.VERSION.SDK_INT >= 21) {
-//            getWindow().getDecorView()
-//                    .setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-//                            | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
-//        }
         setContentView(R.layout.activity_home);
         init();
         setDrawerLayout();

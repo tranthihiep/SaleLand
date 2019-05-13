@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     style="@style/Widget.MaterialComponents.CardView"
-    android:backgroundTint="#f7ca5e"
+    android:backgroundTint="#beb0b0"
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
     >
@@ -68,13 +68,33 @@
                         android:textColor="#515151"
                         android:textSize="13sp"
                         />
-                <ImageView
-                    android:id="@+id/img_delete"
-                    android:layout_gravity="center"
-                    android:layout_width="wrap_content"
+
+                <LinearLayout
+                    android:layout_margin="10dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_delete"
-                    />
+                    android:orientation="horizontal"
+                    android:weightSum="2"
+                    >
+                    <ImageView
+                        android:layout_weight="1"
+                        android:id="@+id/img_delete"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_delete"
+                        />
+                    <ImageView
+                        android:layout_weight="1"
+                        android:id="@+id/img_edit"
+                        android:layout_gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_edit"
+                        />
+
+                </LinearLayout>
+
             </LinearLayout>
         </LinearLayout>
 

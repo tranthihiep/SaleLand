@@ -59,7 +59,7 @@ public class PropertyDetailActivity extends AppCompatActivity {
 
                 initItemList.set(i, model);
 
-                //now update adapter
+                //now update mAmentiesAdapter
                 adapter.updateRecords(initItemList);
             }
         });

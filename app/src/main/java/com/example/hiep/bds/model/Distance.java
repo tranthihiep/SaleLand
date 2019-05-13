@@ -5,8 +5,8 @@ import com.google.gson.annotations.SerializedName;
 
 public class Distance {
     @SerializedName("id")
-@Expose
-private Integer id;
+    @Expose
+    private Integer id;
     @SerializedName("name")
     @Expose
     private String name;
